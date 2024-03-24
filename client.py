@@ -12,6 +12,8 @@ pygame.font.init()
 WINDOW_WIDTH = 746
 WINDOW_HEIGHT = 645
 SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
+#SCREEN = pygame.display.set_mode(SIZE)
+
 
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
@@ -60,6 +62,43 @@ def find_spot(x, y):
             x2 = x2 + 26
     return value
 
+def get_num(screen):
+    #get a number and print it
+    num = random.randint(1, 6)
+    text = FONT.render("choose player to walk " + str(num) + " steps", True, RED)
+    text_rect = text.get_rect()
+    text_rect.center = (371, 50)
+    screen.blit(text, text_rect)
+    return num
+
+def turn(screen ,board, player, num, x, y):
+    spot1 = find_spot(x, y)
+    if player == 1:#white
+        spot2 = spot1 + num
+    elif player == 2:#blue
+        spot2 = spot1 - num
+    if spot2 > 24:
+        # player out
+        board[spot1][0] = board[spot1][0] - 1
+    else:
+        # regular turn
+        if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
+
+            board[spot1][0] = board[spot1][0] - 1
+            board[spot2][0] = board[spot2][0] + 1
+            board[spot2][1] = board[spot1][1]
+            print(board[spot1][1])
+            print(board[spot2][1])
+            if board[spot1][0] == 0:
+                board[spot1][1] = 0
+
+        else:
+            text = FONT.render("player can't go", True, RED)
+            text_rect = text.get_rect()
+            text_rect.center = (371, 600)
+            screen.blit(text, text_rect)
+
+    return board
 
 
 def main():
@@ -70,9 +109,36 @@ def main():
     board = pickle.loads(my_socket.recv(1024))
     print(board)
 
+    screen = pygame.display.set_mode(SIZE)
+    pygame.display.set_caption("Game")
+    img = pygame.image.load(IMAGE)
 
 
 
+    finish = False
+    while not finish:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish = True
+
+            screen.blit(img, (0, 0))
+
+            draw_board(board, screen)
+            response = my_socket.recv(1024)
+            board = pickle.loads(response)
+            print("waiting for num")
+            num = get_num(screen)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = pygame.mouse.get_pos()
+                board = turn(screen, board, player, num, x, y)
+                board_tosend = pickle.dump(board)
+                my_socket.send(board_tosend)
+
+
+
+
+            pygame.display.flip()
+            clock.tick(REFRESH_RATE)
 
 
 

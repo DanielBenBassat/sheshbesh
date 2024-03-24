@@ -21,24 +21,32 @@ def main():
     server_socket.listen()
     client_sockets = []
 
-    num_of_clients = 0
-    while num_of_clients < 2:
+    while len(client_sockets) < 2:
         rlist, wlist, xlist = select.select([server_socket], [], [])
         for current_socket in rlist:
-            if num_of_clients < 2:
+            if len(client_sockets) < 2:
                 connection, client_address = current_socket.accept()
                 print("New client joined!", client_address)
                 client_sockets.append(connection)
-                num_of_clients = num_of_clients + 1
 
-                current_socket.send(str(num_of_clients).encode())
-                print(num_of_clients)
-                board = pickle.dumps(INITIAL_BOARD)
-                current_socket.send(board)
+    for i in range(2):
+        current_socket = client_sockets[i]
+        player = str(i + 1)
+        current_socket.send(player.encode())
 
+        board= pickle.dumps(INITIAL_BOARD)
+        current_socket.send(board)
 
+    current_socket = client_sockets[0]
+    while not IsWin():
+        current_socket.send(board)
+        response = current_socket.recv(1024)
+        board = pickle.loads(response)
 
-
+        if current_socket == client_sockets[0]:
+            current_socket = client_sockets[1]
+        else:
+            current_socket = client_sockets[0]
 
 
 
