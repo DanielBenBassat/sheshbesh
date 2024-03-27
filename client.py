@@ -62,14 +62,14 @@ def find_spot(x, y):
             x2 = x2 + 26
     return value
 
-def get_num(screen):
+def print_num(screen, num):
     #get a number and print it
-    num = random.randint(1, 6)
+
     text = FONT.render("choose player to walk " + str(num) + " steps", True, RED)
     text_rect = text.get_rect()
     text_rect.center = (371, 50)
     screen.blit(text, text_rect)
-    return num
+
 
 def turn(screen ,board, player, num, x, y):
     spot1 = find_spot(x, y)
@@ -108,13 +108,14 @@ def main():
     print("you are player number " + player)
     board = pickle.loads(my_socket.recv(1024))
     print(board)
+    my_socket.send("good".encode())
 
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Game")
     img = pygame.image.load(IMAGE)
 
 
-
+    got_board = False
     finish = False
     while not finish:
         for event in pygame.event.get():
@@ -124,15 +125,25 @@ def main():
             screen.blit(img, (0, 0))
 
             draw_board(board, screen)
-            response = my_socket.recv(1024)
-            board = pickle.loads(response)
-            print("waiting for num")
-            num = get_num(screen)
+
+            if not got_board:
+                response = my_socket.recv(1024)
+                board = pickle.loads(response)
+                print("waiting for num")
+                num = random.randint(1, 6)
+
+                got_board =True
+
+            if got_board:
+                print_num(screen, num)
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
-                board = turn(screen, board, player, num, x, y)
-                board_tosend = pickle.dump(board)
+                board2 = turn(screen, board, int(player), num, x, y)
+                board_tosend = pickle.dumps(board2)
                 my_socket.send(board_tosend)
+                got_board =False
+
 
 
 
