@@ -34,14 +34,16 @@ def main():
         player = str(i + 1)
         current_socket.send(player.encode())
 
-        board= pickle.dumps(INITIAL_BOARD)
+        board = pickle.dumps(INITIAL_BOARD)
         current_socket.send(board)
+        response = current_socket.recv(1024).decode()
+        print(response)
 
     current_socket = client_sockets[0]
     while not IsWin():
         current_socket.send(board)
         response = current_socket.recv(1024)
-        board = pickle.loads(response)
+        board = response
 
         if current_socket == client_sockets[0]:
             current_socket = client_sockets[1]
