@@ -14,11 +14,14 @@ WINDOW_HEIGHT = 645
 SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
 
 
+
+
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 RED = (255, 0, 0)
 
 IMAGE = "board.png"
+BOARD_IMG = pygame.image.load(IMAGE)
 clock = pygame.time.Clock()
 REFRESH_RATE = 60
 FONT = pygame.font.Font(None, 36)
@@ -28,8 +31,28 @@ SQUARES_POS = {1: [121.5, 525], 2: [164.5, 525], 3: [207.5, 525], 4: [250.5, 525
                13: [620.5, 120], 14: [579.5, 120], 15: [534.5, 120], 16: [491.5, 120], 17: [448.5, 120], 18: [405.5, 120],
                19: [336.5, 120], 20: [293.5, 120], 21: [250.5, 120], 22: [207.5, 120], 23: [164.5, 120], 24: [121.5, 120]}
 
+def cangetout(board, color):
+    value = True
+    for spot in board.keys():
+        if color == 1:
+            if spot > 6 and board[spot][0] > 0:
+                value = False
+        elif color ==2:
+            if spot < 19 and board[spot][0] > 0:
+                value = False
+    return value
+def draw_board(board_dict, player, screen):
+    if player == "1":
+        text = FONT.render("white", True, RED)
+        text_rect = text.get_rect()
+        text_rect.center = (30, 10)
+        screen.blit(text, text_rect)
+    elif player == "2":
+        text = FONT.render("blue", True, RED)
+        text_rect = text.get_rect()
+        text_rect.center = (30, 10)
+        screen.blit(text, text_rect)
 
-def draw_board(board_dict, screen):
     for key in board_dict.keys():
         if type(board_dict[key]) == list and board_dict[key][0] > 0:
             if board_dict[key][1] == 1:
@@ -72,37 +95,61 @@ def print_num(screen, num):
     screen.blit(text, text_rect)
 
 
-def turn(screen ,board, player, num, spot):
+def turn(screen, board, player, num, spot):
+    turn_correct = False
     spot1 = spot
-    if player == 1:#white
-        spot2 = spot1 + num
-    elif player == 2:#blue
+    if player == 1:# white
         spot2 = spot1 - num
-    if spot2 > 24:
+    elif player == 2:#blue
+        spot2 = spot1 + num
+    if spot2 > 24 or spot2 < 1:
         # player out
-        board[spot1][0] = board[spot1][0] - 1
+        if (cangetout(board, player)):
+            board[spot1][0] = board[spot1][0] - 1
+            turn_correct =True
+
     else:
         # regular turn
-        if player == 1 and board[spot1][1] ==1 or player == 1 and board[spot1][1] ==1:
-            if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
 
-                board[spot1][0] = board[spot1][0] - 1
-                board[spot2][0] = board[spot2][0] + 1
-                print("in original " + str(board[spot1][0]))
-                print("in new " + str(board[spot2][0]))
+        if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
 
-                board[spot2][1] = board[spot1][1]
+            board[spot1][0] = board[spot1][0] - 1
+            board[spot2][0] = board[spot2][0] + 1
+            print("in original " + str(board[spot1][0]))
+            print("in new " + str(board[spot2][0]))
 
-                if board[spot1][0] == 0:
-                    board[spot1][1] = 0
+            board[spot2][1] = board[spot1][1]
 
-            else:
-                text = FONT.render("player can't go", True, RED)
-                text_rect = text.get_rect()
-                text_rect.center = (371, 600)
-                screen.blit(text, text_rect)
+            if board[spot1][0] == 0:
+                board[spot1][1] = 0
+            turn_correct =True
 
-    return board
+        else:
+            text = FONT.render("player can't go", True, RED)
+            text_rect = text.get_rect()
+            text_rect.center = (371, 600)
+            screen.blit(text, text_rect)
+
+    return board, turn_correct
+
+def prees_enter():
+    finish2 = False
+    while not finish2:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish2 = True
+
+            screen.blit(img, (0, 0))
+            draw_board(board, player, screen)
+
+
+
+
+
+
+
+            pygame.display.flip()
+            clock.tick(REFRESH_RATE)
 
 
 def main():
@@ -116,8 +163,8 @@ def main():
 
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Game")
-    img = pygame.image.load(IMAGE)
 
+    draw_board(board ,player,  screen)
 
     got_board = False
     finish = False
@@ -126,29 +173,33 @@ def main():
             if event.type == pygame.QUIT:
                 finish = True
 
-            screen.blit(img, (0, 0))
-
-            draw_board(board, screen)
+            screen.blit(BOARD_IMG, (0, 0))
+            draw_board(board, player, screen)
 
             if not got_board:
                 response = my_socket.recv(1024)
                 board = pickle.loads(response)
-                print("waiting for num")
                 num = random.randint(1, 6)
-                got_board =True
+                got_board = True
 
             if got_board:
-                print_num(screen, num)
 
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                x, y = pygame.mouse.get_pos()
-                spot = find_spot(x, y)
-                board2 = turn(screen, board, int(player), num, spot)
-                screen.blit(img, (0, 0))
-                draw_board(board2, screen)
-                board_tosend = pickle.dumps(board2)
-                my_socket.send(board_tosend)
-                got_board = False
+                print_num(screen, num)
+                turn_correct = False
+                if not turn_correct:
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        x, y = pygame.mouse.get_pos()
+                        spot = find_spot(x, y)
+
+                        if board[spot][1] == int(player):
+                            board2, turn_correct = turn(screen, board, int(player), num, spot)
+                            screen.blit(BOARD_IMG, (0, 0))
+                            draw_board(board2,player, screen)
+
+                if turn_correct:
+                    board_tosend = pickle.dumps(board2)
+                    my_socket.send(board_tosend)
+                    got_board = False
 
 
 
