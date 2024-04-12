@@ -2,6 +2,7 @@ import socket
 import pygame
 import random
 import pickle
+import select
 
 IP = '127.0.0.1'
 PORT = 5555
@@ -12,6 +13,7 @@ pygame.font.init()
 WINDOW_WIDTH = 746
 WINDOW_HEIGHT = 645
 SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
+
 
 
 
@@ -132,24 +134,7 @@ def turn(screen, board, player, num, spot):
 
     return board, turn_correct
 
-def prees_enter():
-    finish2 = False
-    while not finish2:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                finish2 = True
 
-            screen.blit(img, (0, 0))
-            draw_board(board, player, screen)
-
-
-
-
-
-
-
-            pygame.display.flip()
-            clock.tick(REFRESH_RATE)
 
 
 def main():
@@ -164,26 +149,35 @@ def main():
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Game")
 
-    draw_board(board ,player,  screen)
+    draw_board(board,player,  screen)
 
     got_board = False
     finish = False
+    my_socket.settimeout(0.01)
+
     while not finish:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
 
             screen.blit(BOARD_IMG, (0, 0))
-            draw_board(board, player, screen)
 
             if not got_board:
-                response = my_socket.recv(1024)
-                board = pickle.loads(response)
-                num = random.randint(1, 6)
-                got_board = True
+                rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
+                if len(rlist)>0:
+                    print("ready to receive")
+
+
+                    response = my_socket.recv(1024)
+
+                    board = pickle.loads(response)
+                    print(board)
+                    num = random.randint(1, 6)
+                    got_board = True
+
+
 
             if got_board:
-
                 print_num(screen, num)
                 turn_correct = False
                 if not turn_correct:
@@ -201,12 +195,9 @@ def main():
                     my_socket.send(board_tosend)
                     got_board = False
 
-
-
-
-
-            pygame.display.flip()
-            clock.tick(REFRESH_RATE)
+        draw_board(board, player, screen)
+        pygame.display.flip()
+        clock.tick(REFRESH_RATE)
 
 
 
