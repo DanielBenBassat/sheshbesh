@@ -4,6 +4,8 @@ import random
 import pickle
 import select
 
+import protocol
+
 IP = '127.0.0.1'
 PORT = 5555
 
@@ -35,13 +37,17 @@ SQUARES_POS = {1: [121.5, 525], 2: [164.5, 525], 3: [207.5, 525], 4: [250.5, 525
 
 def cangetout(board, color):
     value = True
-    for spot in board.keys():
-        if color == 1:
-            if spot > 6 and board[spot][0] > 0:
-                value = False
-        elif color ==2:
+    if color == 1: # white
+        for spot in board.keys():
+            if spot > 6:
+                if board[spot][0] > 0 and board[spot][1] == 1:
+                    value = False
+
+    elif color == 2: # blue
+        for spot in board.keys():
             if spot < 19 and board[spot][0] > 0:
-                value = False
+                if board[spot][0] > 0 and board[spot][1] == 2:
+                    value = False
     return value
 def draw_board(board_dict, player, screen):
     if player == "1":
@@ -96,6 +102,13 @@ def print_num(screen, num):
     text_rect.center = (371, 50)
     screen.blit(text, text_rect)
 
+def print_gameover(screen):
+    text = FONT.render("gameover" , True, RED)
+    text_rect = text.get_rect()
+    text_rect.center = (371, 200)
+    screen.blit(text, text_rect)
+
+
 
 def turn(screen, board, player, num, spot):
     turn_correct = False
@@ -142,9 +155,9 @@ def main():
     my_socket.connect((IP, PORT))
     player = my_socket.recv(1024).decode()
     print("you are player number " + player)
-    board = pickle.loads(my_socket.recv(1024))
+    board = protocol.receive_board(my_socket)
     print(board)
-    my_socket.send("good".encode())
+    #my_socket.send("good".encode())
 
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Game")
@@ -166,14 +179,13 @@ def main():
                 rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
                 if len(rlist)>0:
                     print("ready to receive")
+                    response = protocol.receive_board(my_socket)
+                    print(response)
 
-
-                    response = my_socket.recv(1024)
-
-                    board = pickle.loads(response)
-                    print(board)
-                    num = random.randint(1, 6)
-                    got_board = True
+                    if response != -1:
+                        board = response
+                        num = random.randint(1, 6)
+                        got_board = True
 
 
 
@@ -191,13 +203,13 @@ def main():
                             draw_board(board2,player, screen)
 
                 if turn_correct:
-                    board_tosend = pickle.dumps(board2)
-                    my_socket.send(board_tosend)
+                    my_socket.send(protocol.send_board(board))
                     got_board = False
 
-        draw_board(board, player, screen)
-        pygame.display.flip()
-        clock.tick(REFRESH_RATE)
+
+            draw_board(board, player, screen)
+            pygame.display.flip()
+            clock.tick(REFRESH_RATE)
 
 
 

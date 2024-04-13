@@ -1,15 +1,23 @@
 import socket
 import select
 import pickle
+
+import protocol
+
 MAX_MSG_LENGTH = 1024
 SERVER_PORT = 5555
 SERVER_IP = '0.0.0.0'
 
 # 1- white, 2- blue, 0 -none
-INITIAL_BOARD = {1: [2, 2], 2: [0, 0], 3: [0, 0], 4: [0, 0], 5: [0, 0], 6: [5, 1],
+INITIAL_BOARD2 = {1: [2, 2], 2: [0, 0], 3: [0, 0], 4: [0, 0], 5: [0, 0], 6: [5, 1],
                  7: [0, 0], 8: [3, 1], 9: [0, 0], 10: [0, 0], 11: [0, 0], 12: [5, 2],
                  13: [5, 1], 14: [0, 0], 15: [0, 0], 16: [0, 0], 17: [3, 2], 18: [0, 0],
                  19: [5, 2], 20: [0, 0], 21: [0, 0], 22: [0, 0], 23: [0, 0], 24: [2, 1]}
+
+INITIAL_BOARD = {1: [0, 2], 2: [0, 0], 3: [0, 0], 4: [0, 0], 5: [0, 0], 6: [1, 1],
+                 7: [0, 0], 8: [0, 1], 9: [0, 0], 10: [0, 0], 11: [0, 0], 12: [1, 2],
+                 13: [0, 1], 14: [0, 0], 15: [0, 0], 16: [0, 0], 17: [0, 2], 18: [0, 0],
+                 19: [0, 2], 20: [0, 0], 21: [0, 0], 22: [0, 0], 23: [0, 0], 24: [0, 1]}
 
 
 def IsWin(board: dict, color: int):
@@ -40,21 +48,16 @@ def main():
             current_socket = client_sockets[i]
             player = str(i + 1)
             current_socket.send(player.encode())
-
-            board = pickle.dumps(INITIAL_BOARD)
-            current_socket.send(board)
-            response = current_socket.recv(1024).decode()
-            print(response)
+            current_socket.send(protocol.send_board(INITIAL_BOARD))
 
         current_socket = client_sockets[0]
         color = 1
         board = INITIAL_BOARD
-        boardBytes= pickle.dumps(board)
+
         while not IsWin(board, color):
-            current_socket.send(boardBytes)
-            response = current_socket.recv(1024)
-            boardBytes = response
-            board = pickle.loads(boardBytes)
+            current_socket.protocol.send_board(board)
+            response = protocol.receive_board(current_socket)
+            board = pickle.loads(response)
 
             if current_socket == client_sockets[0]:
                 color =1
@@ -71,9 +74,8 @@ def main():
         print(f"An error occurred: {e}")
 
     finally:
-        server_socket.close()
-        for client_socket in client_sockets:
-            client_socket.close()
+
+        print("gameover")
 
 if __name__ == "__main__":
     main()
