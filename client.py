@@ -102,11 +102,31 @@ def print_num(screen, num):
     text_rect.center = (371, 50)
     screen.blit(text, text_rect)
 
-def print_gameover(screen):
-    text = FONT.render("gameover" , True, RED)
+def print_gameover(screen, color):
+    text = FONT.render(color + " has won", True, BLUE)
     text_rect = text.get_rect()
-    text_rect.center = (371, 200)
+    text_rect.center = (371, 320)
     screen.blit(text, text_rect)
+
+def end_screen(color, board, screen):
+    finish = False
+    if color == "1":
+        color = "white"
+    elif color == "2":
+        color = "blue"
+
+    while not finish:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish = True
+
+            draw_board(board, color, screen)
+            print_gameover(screen, color)
+
+            pygame.display.flip()
+            clock.tick(REFRESH_RATE)
+
+
 
 
 
@@ -153,16 +173,15 @@ def turn(screen, board, player, num, spot):
 def main():
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     my_socket.connect((IP, PORT))
-    player = my_socket.recv(1024).decode()
-    print("you are player number " + player)
-    board = protocol.receive_board(my_socket)
-    print(board)
-    #my_socket.send("good".encode())
+    func, board = protocol.receive_protocol(my_socket)
+
+    if func[0] == "1":
+       color = func[1]
 
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Game")
 
-    draw_board(board,player,  screen)
+    draw_board(board ,color,  screen)
 
     got_board = False
     finish = False
@@ -179,13 +198,21 @@ def main():
                 rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
                 if len(rlist)>0:
                     print("ready to receive")
-                    response = protocol.receive_board(my_socket)
-                    print(response)
+                    func, board2 = protocol.receive_protocol(my_socket)
+                    print(func)
 
-                    if response != -1:
-                        board = response
+
+                    if func == "20":
+                        board= board2
                         num = random.randint(1, 6)
                         got_board = True
+                        print(board)
+
+                    elif func == "31" or func == "32:":
+                        my_socket.close()
+                        color = func[1]
+                        end_screen(color, board2, screen)
+
 
 
 
@@ -197,17 +224,17 @@ def main():
                         x, y = pygame.mouse.get_pos()
                         spot = find_spot(x, y)
 
-                        if board[spot][1] == int(player):
-                            board2, turn_correct = turn(screen, board, int(player), num, spot)
+                        if board[spot][1] == int(color):
+                            board2, turn_correct = turn(screen, board, int(color), num, spot)
                             screen.blit(BOARD_IMG, (0, 0))
-                            draw_board(board2,player, screen)
+                            draw_board(board2,color, screen)
 
                 if turn_correct:
-                    my_socket.send(protocol.send_board(board))
+                    my_socket.send(protocol.send_protocol("20" ,board))
                     got_board = False
 
 
-            draw_board(board, player, screen)
+            draw_board(board, color, screen)
             pygame.display.flip()
             clock.tick(REFRESH_RATE)
 
