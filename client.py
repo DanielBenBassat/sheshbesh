@@ -3,21 +3,18 @@ import pygame
 import random
 import pickle
 import select
-
 import protocol
-
-IP = '127.0.0.1'
-PORT = 5555
 
 pygame.init()
 pygame.font.init()
+
 # Constants
+IP = '127.0.0.1'
+PORT = 5555
+
 WINDOW_WIDTH = 746
 WINDOW_HEIGHT = 645
 SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
-
-
-
 
 
 WHITE = (255, 255, 255)
@@ -35,41 +32,35 @@ SQUARES_POS = {1: [121.5, 525], 2: [164.5, 525], 3: [207.5, 525], 4: [250.5, 525
                13: [620.5, 120], 14: [579.5, 120], 15: [534.5, 120], 16: [491.5, 120], 17: [448.5, 120], 18: [405.5, 120],
                19: [336.5, 120], 20: [293.5, 120], 21: [250.5, 120], 22: [207.5, 120], 23: [164.5, 120], 24: [121.5, 120]}
 
-def cangetout(board, color):
-    value = True
-    if color == 1: # white
-        for spot in board.keys():
-            if spot > 6:
-                if board[spot][0] > 0 and board[spot][1] == 1:
-                    value = False
 
-    elif color == 2: # blue
-        for spot in board.keys():
-            if spot < 19 and board[spot][0] > 0:
-                if board[spot][0] > 0 and board[spot][1] == 2:
-                    value = False
-    return value
-def draw_board(board_dict, player, screen):
-    if player == "1":
+def draw_board(board, color, screen):
+    """
+    the function receiveid a dictionary and the color of the player and draw the board
+    :param board: dictionary of the spot and how many player and which color in it
+    :param color: the color of the player in str
+    :param screen: the screen
+    :return: none
+    """
+    if color == "1":
         text = FONT.render("white", True, RED)
         text_rect = text.get_rect()
         text_rect.center = (30, 10)
         screen.blit(text, text_rect)
-    elif player == "2":
+    elif color == "2":
         text = FONT.render("blue", True, RED)
         text_rect = text.get_rect()
         text_rect.center = (30, 10)
         screen.blit(text, text_rect)
 
-    for key in board_dict.keys():
-        if type(board_dict[key]) == list and board_dict[key][0] > 0:
-            if board_dict[key][1] == 1:
+    for key in board.keys():
+        if type(board[key]) == list and board[key][0] > 0:
+            if board[key][1] == "1":
                 color = WHITE
-            elif board_dict[key][1] == 2:
+            elif board[key][1] == "2":
                 color = BLUE
 
             x, y = SQUARES_POS[key]
-            for i in range(board_dict[key][0]):
+            for i in range(board[key][0]):
                 pygame.draw.circle(screen, color, [x, y], 20)
                 if key <= 12:
                     y = y - 40
@@ -78,6 +69,12 @@ def draw_board(board_dict, player, screen):
 
 
 def find_spot(x, y):
+    """
+    check in which spot in board the client press
+    :param x: x pos
+    :param y: y pos
+    :return: the spot on the board of x and y
+    """
     x1 = 100
     x2 = 143
     value = 0
@@ -95,51 +92,25 @@ def find_spot(x, y):
     return value
 
 
-def print_num(screen, num):
-    # get a number and print it
-    text = FONT.render("choose player to walk " + str(num) + " steps", True, RED)
-    text_rect = text.get_rect()
-    text_rect.center = (371, 50)
-    screen.blit(text, text_rect)
+def turn(screen, board, color, num, spot):
+    """
 
-def print_gameover(screen, color):
-    text = FONT.render(color + " has won", True, BLUE)
-    text_rect = text.get_rect()
-    text_rect.center = (371, 320)
-    screen.blit(text, text_rect)
-
-def end_screen(color, board, screen):
-    finish = False
-    if color == "1":
-        color = "white"
-    elif color == "2":
-        color = "blue"
-
-    while not finish:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                finish = True
-
-            draw_board(board, color, screen)
-            print_gameover(screen, color)
-
-            pygame.display.flip()
-            clock.tick(REFRESH_RATE)
-
-
-
-
-
-def turn(screen, board, player, num, spot):
+    :param screen: the screen
+    :param board: the board
+    :param color: color of the client
+    :param num: the num of the cube for this turn
+    :param spot: the spot the client press on
+    :return: the board after the turn and if the turn is correct
+    """
     turn_correct = False
     spot1 = spot
-    if player == 1:# white
+    if color == "1":# white
         spot2 = spot1 - num
-    elif player == 2:#blue
+    elif color == "2":#blue
         spot2 = spot1 + num
     if spot2 > 24 or spot2 < 1:
         # player out
-        if (cangetout(board, player)):
+        if (cangetout(board, color)):
             board[spot1][0] = board[spot1][0] - 1
             turn_correct =True
 
@@ -156,8 +127,8 @@ def turn(screen, board, player, num, spot):
             board[spot2][1] = board[spot1][1]
 
             if board[spot1][0] == 0:
-                board[spot1][1] = 0
-            turn_correct =True
+                board[spot1][1] = "0"
+            turn_correct = True
 
         else:
             text = FONT.render("player can't go", True, RED)
@@ -168,6 +139,67 @@ def turn(screen, board, player, num, spot):
     return board, turn_correct
 
 
+def cangetout(board, color):
+    """
+    check if the player can get out according to the board
+    :param board: dictionary of the board
+    :param color: color of the client
+    :return: true if player can get out and false if not
+    """
+    value = True
+    if color == "1": # white
+        for spot in board.keys():
+            if spot > 6:
+                if board[spot][0] > 0 and board[spot][1] == "1":
+                    value = False
+
+    elif color == "2": # blue
+        for spot in board.keys():
+            if spot < 19 and board[spot][0] > 0:
+                if board[spot][0] > 0 and board[spot][1] == "2":
+                    value = False
+    return value
+
+
+def print_num(screen, num):
+    """
+    print the num for this turn on the screen
+    """
+    # get a number and print it
+    text = FONT.render("choose player to walk " + str(num) + " steps", True, RED)
+    text_rect = text.get_rect()
+    text_rect.center = (371, 50)
+    screen.blit(text, text_rect)
+
+
+def end_screen(color, board, screen):
+    """
+    draws the end screen after the game over
+    :param color: color of the player who won
+    :param board: dict of the board
+    :param screen: screen
+    :return: none
+    """
+    finish = False
+    if color == "1":
+        color = "white"
+    elif color == "2":
+        color = "blue"
+
+    while not finish:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish = True
+
+            draw_board(board, color, screen)
+            text = FONT.render(color + " has won", True, BLUE)
+            text_rect = text.get_rect()
+            text_rect.center = (371, 320)
+            screen.blit(text, text_rect)
+
+
+            pygame.display.flip()
+            clock.tick(REFRESH_RATE)
 
 
 def main():
@@ -175,17 +207,16 @@ def main():
     my_socket.connect((IP, PORT))
     func, board = protocol.receive_protocol(my_socket)
 
-    if func[0] == "1":
-       color = func[1]
+    if func == "11":
+        color = "1"
+    elif func == "12":
+        color = "2"
 
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Game")
 
-    draw_board(board ,color,  screen)
-
     got_board = False
     finish = False
-    my_socket.settimeout(0.01)
 
     while not finish:
         for event in pygame.event.get():
@@ -196,25 +227,19 @@ def main():
 
             if not got_board:
                 rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
-                if len(rlist)>0:
-                    print("ready to receive")
+                if len(rlist) > 0:
                     func, board2 = protocol.receive_protocol(my_socket)
                     print(func)
-
-
                     if func == "20":
-                        board= board2
+                        board = board2
                         num = random.randint(1, 6)
                         got_board = True
-                        print(board)
 
-                    elif func == "31" or func == "32:":
+                    elif func == "31" or func == "32":
+                        print("gameover")
                         my_socket.close()
                         color = func[1]
                         end_screen(color, board2, screen)
-
-
-
 
             if got_board:
                 print_num(screen, num)
@@ -223,23 +248,19 @@ def main():
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         x, y = pygame.mouse.get_pos()
                         spot = find_spot(x, y)
-
-                        if board[spot][1] == int(color):
-                            board2, turn_correct = turn(screen, board, int(color), num, spot)
-                            screen.blit(BOARD_IMG, (0, 0))
-                            draw_board(board2,color, screen)
+                        if 0 < spot < 25:
+                            if board[spot][1] == color:
+                                board, turn_correct = turn(screen, board, color, num, spot)
+                                screen.blit(BOARD_IMG, (0, 0))
+                                draw_board(board, color, screen)
 
                 if turn_correct:
-                    my_socket.send(protocol.send_protocol("20" ,board))
+                    my_socket.send(protocol.send_protocol("20", board))
                     got_board = False
-
 
             draw_board(board, color, screen)
             pygame.display.flip()
             clock.tick(REFRESH_RATE)
-
-
-
 
 
 if __name__ == "__main__":
