@@ -131,8 +131,6 @@ def turn(screen, board, color, num, spot):
 
                 board[spot1][0] = board[spot1][0] - 1
                 board[spot2][0] = board[spot2][0] + 1
-                print("in original " + str(board[spot1][0]))
-                print("in new " + str(board[spot2][0]))
 
                 board[spot2][1] = board[spot1][1]
 
@@ -146,7 +144,6 @@ def turn(screen, board, color, num, spot):
                 text_rect.center = (371, 600)
                 screen.blit(text, text_rect)
 
-        #return board, turn_correct
     except socket.error as err:
         turn_correct = False
     finally:
@@ -239,19 +236,19 @@ def waiting_screen(screen, my_socket):
                 if event.type == pygame.QUIT:
                     finish = True
 
-                rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
-                if len(rlist) > 0:
-                    func, board = protocol.receive_protocol(my_socket)
-                    return func, board
+            rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
+            if len(rlist) > 0:
+                func, board = protocol.receive_protocol(my_socket)
+                return func, board
 
-                else:
-                    text = FONT.render("waiting for another player", True, BLUE)
-                    text_rect = text.get_rect()
-                    text_rect.center = (371, 320)
-                    screen.blit(text, text_rect)
+            else:
+                text = FONT.render("waiting for another player", True, BLUE)
+                text_rect = text.get_rect()
+                text_rect.center = (371, 320)
+                screen.blit(text, text_rect)
 
-                    pygame.display.flip()
-                    clock.tick(REFRESH_RATE)
+                pygame.display.flip()
+                clock.tick(REFRESH_RATE)
     except socket.error as err:
         print('received socket error ' + str(err))
         return "-1", "-1"
@@ -354,5 +351,55 @@ if __name__ == "__main__":
     if not os.path.isdir(LOG_DIR):
         os.makedirs(LOG_DIR)
     logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
+
+    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    assert not cangetout(board, "1")
+    assert not cangetout(board, "2")
+
+    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [5, "1"], 5: [5, "1"], 6: [5, "1"],
+             7: [0, "0"], 8: [0, "0"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+             13: [0, "0"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [0, "0"]}
+    assert cangetout(board, "1")
+
+    assert find_spot(120, 110) == 24
+    assert find_spot(120, 400) == 1
+    assert find_spot(300, 400) == 5
+
+    screen = pygame.display.set_mode(SIZE)
+    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+              7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+              13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+              19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    color = "2"
+    num = 1
+    spot = 1
+    board2 = {1: [1, "2"], 2: [1, "2"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+              7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+              13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+              19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    assert turn(screen, board, color, num, spot) == (board2, True)
+
+    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    color = "2"
+    num = 5
+    spot = 1
+    assert turn(screen, board, color, num, spot) == (board, False)
+
+    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+
+    assert protocol.send_protocol("11", board) == b'11262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
+    assert protocol.send_protocol("20", board) == b'20262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
+
+
     main()
     logging.debug("close screen")
