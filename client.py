@@ -4,6 +4,7 @@ import random
 import pickle
 import select
 import protocol
+import time
 
 pygame.init()
 pygame.font.init()
@@ -20,6 +21,8 @@ SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 RED = (255, 0, 0)
+
+DURATION = 30
 
 IMAGE = "board.png"
 BOARD_IMG = pygame.image.load(IMAGE)
@@ -44,12 +47,12 @@ def draw_board(board, color, screen):
     if color == "1":
         text = FONT.render("white", True, RED)
         text_rect = text.get_rect()
-        text_rect.center = (30, 10)
+        text_rect.center = (50, 20)
         screen.blit(text, text_rect)
     elif color == "2":
         text = FONT.render("blue", True, RED)
         text_rect = text.get_rect()
-        text_rect.center = (30, 10)
+        text_rect.center = (50, 10)
         screen.blit(text, text_rect)
 
     for key in board.keys():
@@ -182,9 +185,11 @@ def end_screen(color, board, screen):
     """
     finish = False
     if color == "1":
-        color = "white"
+        msg = "white has won"
     elif color == "2":
-        color = "blue"
+        msg = "blue has won"
+    else:
+        msg = "the other player disconnect, you have won"
 
     while not finish:
         for event in pygame.event.get():
@@ -192,7 +197,7 @@ def end_screen(color, board, screen):
                 finish = True
 
             draw_board(board, color, screen)
-            text = FONT.render(color + " has won", True, BLUE)
+            text = FONT.render(msg, True, BLUE)
             text_rect = text.get_rect()
             text_rect.center = (371, 320)
             screen.blit(text, text_rect)
@@ -201,19 +206,43 @@ def end_screen(color, board, screen):
             pygame.display.flip()
             clock.tick(REFRESH_RATE)
 
+def waiting_screen(screen, my_socket):
+    finish = False
+    while not finish:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish = True
+
+            rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
+            if len(rlist) > 0:
+                func, board = protocol.receive_protocol(my_socket)
+                return func, board
+
+            else:
+                text = FONT.render("waiting for another player", True, BLUE)
+                text_rect = text.get_rect()
+                text_rect.center = (371, 320)
+                screen.blit(text, text_rect)
+
+                pygame.display.flip()
+                clock.tick(REFRESH_RATE)
+
+
+
 
 def main():
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     my_socket.connect((IP, PORT))
-    func, board = protocol.receive_protocol(my_socket)
+    screen = pygame.display.set_mode(SIZE)
+    pygame.display.set_caption("Game")
+
+    func, board = waiting_screen(screen, my_socket)
+    print(func)
 
     if func == "11":
         color = "1"
     elif func == "12":
         color = "2"
-
-    screen = pygame.display.set_mode(SIZE)
-    pygame.display.set_caption("Game")
 
     got_board = False
     finish = False
@@ -223,45 +252,63 @@ def main():
             if event.type == pygame.QUIT:
                 finish = True
 
-            screen.blit(BOARD_IMG, (0, 0))
+        screen.blit(BOARD_IMG, (0, 0))
 
-            if not got_board:
-                rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
-                if len(rlist) > 0:
-                    func, board2 = protocol.receive_protocol(my_socket)
-                    print(func)
-                    if func == "20":
-                        board = board2
-                        num = random.randint(1, 6)
-                        got_board = True
+        if not got_board:
+            rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
+            if len(rlist) > 0:
+                func, board2 = protocol.receive_protocol(my_socket)
+                print(func)
+                if func == "20":
+                    board = board2
+                    num = random.randint(1, 6)
+                    got_board = True
+                    start_time = time.time()
+                    time_left = DURATION
 
-                    elif func == "31" or func == "32":
-                        print("gameover")
-                        my_socket.close()
-                        color = func[1]
-                        end_screen(color, board2, screen)
+                elif func == "30" or func == "31" or func == "32":
+                    print("gameover")
+                    my_socket.close()
+                    color = func[1]
+                    end_screen(color, board2, screen)
+                    break
 
-            if got_board:
-                print_num(screen, num)
-                turn_correct = False
-                if not turn_correct:
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        x, y = pygame.mouse.get_pos()
-                        spot = find_spot(x, y)
-                        if 0 < spot < 25:
-                            if board[spot][1] == color:
-                                board, turn_correct = turn(screen, board, color, num, spot)
-                                screen.blit(BOARD_IMG, (0, 0))
-                                draw_board(board, color, screen)
+        if got_board:
+            print_num(screen, num)
+            turn_correct = False
+            if not turn_correct:
+
+                if time_left > 0:
+                    elapsed_time = time.time() - start_time
+                    time_left = max(DURATION - int(elapsed_time), 0)
+                    pygame.time.delay(100)
+                    text = FONT.render("Time Left: " + str(time_left), True, RED)
+                    text_rect = text.get_rect()
+                    text_rect.center = (650, 15)
+                    screen.blit(text, text_rect)
+
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            x, y = pygame.mouse.get_pos()
+                            spot = find_spot(x, y)
+                            if 0 < spot < 25:
+                                if board[spot][1] == color:
+                                    board, turn_correct = turn(screen, board, color, num, spot)
+                                    screen.blit(BOARD_IMG, (0, 0))
+                                    draw_board(board, color, screen)
+                else:
+                    turn_correct = True
 
                 if turn_correct:
                     my_socket.send(protocol.send_protocol("20", board))
                     got_board = False
 
-            draw_board(board, color, screen)
-            pygame.display.flip()
-            clock.tick(REFRESH_RATE)
+
+        draw_board(board, color, screen)
+        pygame.display.flip()
+        clock.tick(REFRESH_RATE)
 
 
 if __name__ == "__main__":
     main()
+    print("done")
