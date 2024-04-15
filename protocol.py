@@ -11,7 +11,6 @@ def send_protocol(func, board):
     msg += length.encode() + b'!' + board_bytes
     return msg
 
-print(send_protocol("20", INITIAL_BOARD))
 
 
 def receive_protocol(current_socket):

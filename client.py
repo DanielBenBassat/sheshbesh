@@ -355,4 +355,4 @@ if __name__ == "__main__":
         os.makedirs(LOG_DIR)
     logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
     main()
-    print("done")
+    logging.debug("close screen")
