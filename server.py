@@ -1,6 +1,5 @@
 import socket
 import select
-import pickle
 import logging
 import protocol
 import os
@@ -19,33 +18,26 @@ INITIAL_BOARD = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"]
                  7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
                  13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
                  19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"],
-                  100: [0, "1"], #white eaten
-                   -100: [0, "2"] #blue eaten
-                   }
-
-INITIAL_BOARD2 = {1: [3, "1"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [0, "1"],
-                 7: [0, "0"], 8: [0, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [0, "2"],
-                 13: [0, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [0, "2"], 18: [0, "0"],
-                 19: [0, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [2, "2"], 24: [0, "1"]}
+                 100: [0, "1"],
+                 -100: [0, "2"]}
 
 
-def is_win(board, color):
+def is_win(board1, color):
     """
     check if the game is over
-    :param board: dictionary of the board
+    :param board1: dictionary of the board
     :param color: theplayer that the function checks if he has won
     :return: true if the player won and false if not
     """
     value = True
-    for spot in board.keys():
-        if board[spot][1] == color and board[spot][0] > 0:
+    for spot in board1.keys():
+        if board1[spot][1] == color and board1[spot][0] > 0:
             value = False
     return value
 
 
 def main():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
     try:
         server_socket.bind((SERVER_IP, SERVER_PORT))
         server_socket.listen()
@@ -72,7 +64,6 @@ def main():
                 board = INITIAL_BOARD
 
                 while not is_win(board, color):
-
                     current_socket.send(protocol.send_protocol("20", board))
                     logging.debug(protocol.send_protocol("20", board))
 
@@ -94,24 +85,29 @@ def main():
                     client_socket.send(protocol.send_protocol(func, board))
                     logging.debug("send function: " + func)
 
-            except (socket.error,socket.timeout) as e:
+            except (socket.error, socket.timeout) as e:
                 logging.debug(f"Socket error occurred: {e}")
                 logging.debug("GAME OVER")
                 func = "30"
-
+                count = -1
                 try:
                     logging.debug(len(client_sockets))
-                    # client can disconnect only in other client turn so the last color who played needs to get the msg
-                    if color == "2": #if white disconnect send to blue
-                        client_sockets[1].send(protocol.send_protocol(func, board))
-                        logging.debug("send function: " + func)
-                    elif color == "1": #if blue disconnect send to white
-                        client_sockets[0].send(protocol.send_protocol(func, board))
-                        logging.debug("send function: " + func)
-
+                    count = 0
+                    client_sockets[1].send(protocol.send_protocol(func, board))
+                    logging.debug("send function: " + func)
+                    count = 1
+                    client_sockets[0].send(protocol.send_protocol(func, board))
+                    logging.debug("send function: " + func)
 
                 except socket.error as e:
-                    logging.debug("socket is close")
+                    logging.debug(f"Socket error occurred: {e}")
+                    if count == 0:
+                        try:
+                            client_sockets[0].send(protocol.send_protocol(func, board))
+                            logging.debug("send function: " + func)
+                        except socket.error as e:
+                            logging.debug(f"Socket error occurred: {e}")
+
                 except Exception as e:
                     logging.debug(f"An error occurred: {e}")
 
@@ -123,8 +119,6 @@ def main():
 
     finally:
         server_socket.close()
-
-
 
 
 if __name__ == "__main__":
@@ -140,14 +134,12 @@ if __name__ == "__main__":
     assert not is_win(board, "2")
 
     board2 = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [0, "0"],
-             7: [0, "0"], 8: [0, "0"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-             13: [0, "0"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [0, "0"]}
+              7: [0, "0"], 8: [0, "0"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+              13: [0, "0"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+              19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [0, "0"]}
     assert is_win(board2, "1")
 
     assert protocol.send_protocol("11", board) == b'11262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
     assert protocol.send_protocol("20", board) == b'20262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
-
-
 
     main()

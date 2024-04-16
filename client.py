@@ -1,7 +1,6 @@
 import socket
 import pygame
 import random
-import pickle
 import select
 import protocol
 import time
@@ -45,7 +44,7 @@ SQUARES_POS = {1: [121.5, 525], 2: [164.5, 525], 3: [207.5, 525], 4: [250.5, 525
 
 def draw_board(board, color, screen):
     """
-    the function receiveid a dictionary and the color of the player and draw the board
+    the function received a dictionary and the color of the player and draw the board
     :param board: dictionary of the spot and how many player and which color in it
     :param color: the color of the player in str
     :param screen: the screen
@@ -61,7 +60,6 @@ def draw_board(board, color, screen):
         text_rect = text.get_rect()
         text_rect.center = (50, 10)
         screen.blit(text, text_rect)
-
 
     for key in board.keys():
         if board[key][1] == "1":
@@ -88,22 +86,22 @@ def find_spot(x, y):
     :param y: y pos
     :return: the spot on the board of x and y
     """
+    value = 0
     try:
         x1 = 100
         x2 = 143
-        value = 0
         for i in range(1, 13):
             if x1 <= x < x2:
-                if 100 < y < 300:
+                if 100 < y < 330:
                     value = 25 - i
-                elif 340 < y < 540:
+                elif 310 < y < 540:
                     value = i
             x1 = x1 + 43
             x2 = x2 + 43
             if i == 6:
                 x1 = x1 + 26
                 x2 = x2 + 26
-        if 57<x<100:
+        if 57 < x < 100:
             if 100 < y < 300:
                 value = 100
             elif 340 < y < 540:
@@ -115,59 +113,105 @@ def find_spot(x, y):
         return value
 
 
-def turn(screen, board, color, num, spot):
+def turn(screen, board, color, num, spot1):
     """
-
+    do the player turn, move circle according to the num and the spot
     :param screen: the screen
     :param board: the board
     :param color: color of the client
     :param num: the num of the cube for this turn
-    :param spot: the spot the client press on
+    :param spot1: the spot the client press on
     :return: the board after the turn and if the turn is correct
     """
+    turn_correct = False
     try:
-        turn_correct = False
-        spot1 = spot
-        if color == "1":# white
+
+        if color == "1":
             spot2 = spot1 - num
-        elif color == "2":#blue
+        elif color == "2":
             spot2 = spot1 + num
-        if spot2 > 24 or spot2 < 1:
-            # player out
-            if cangetout(board, color):
-                board[spot1][0] = board[spot1][0] - 1
-                turn_correct =True
-
         else:
-            # regular turn
+            spot2 = 0
 
+        if 1 <= spot2 <= 24:
+            if spot2 > 24 or spot2 < 1:
+                # player out
+    
+                if can_get_out(board, color):
+                    logging.debug("player go out")
+                    board[spot1][0] = board[spot1][0] - 1
+                    turn_correct = True
+    
+            else:
+                # regular turn
+    
+                if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
+    
+                    board[spot1][0] = board[spot1][0] - 1
+                    board[spot2][0] = board[spot2][0] + 1
+    
+                    board[spot2][1] = board[spot1][1]
+    
+                    if board[spot1][0] == 0:
+                        board[spot1][1] = "0"
+                    turn_correct = True
+    
+                elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
+                    logging.debug("eat other player")
+                    if board[spot2][1] == "1":
+                        board[100][0] = board[100][0] + 1
+                    elif board[spot2][1] == "2":
+                        board[-100][0] = board[-100][0] + 1
+    
+                    board[spot1][0] = board[spot1][0] - 1
+                    board[spot2][1] = board[spot1][1]
+    
+                    if board[spot1][0] == 0:
+                        board[spot1][1] = "0"
+    
+                    turn_correct = True
+    
+                else:
+                    text = FONT.render("player can't go", True, RED)
+                    text_rect = text.get_rect()
+                    text_rect.center = (371, 600)
+                    screen.blit(text, text_rect)
+
+    except socket.error as err:
+        logging.debug('received socket error ' + str(err))
+        turn_correct = False
+    finally:
+        return board, turn_correct
+
+
+def turn_eaten_player(screen, board, color, num, spot1):
+    turn_correct = False
+    try:
+        if color == "1":
+            spot2 = 25 - num
+        elif color == "2":
+            spot2 = num
+        else:
+            spot2 = 0
+        
+        if 1 <= spot2 <= 24:
             if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
-                print("regular")
                 board[spot1][0] = board[spot1][0] - 1
                 board[spot2][0] = board[spot2][0] + 1
-
                 board[spot2][1] = board[spot1][1]
-
-                if board[spot1][0] == 0:
-                    board[spot1][1] = "0"
                 turn_correct = True
-
+    
             elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
-                print("got to eat")
+                logging.debug("eat other player")
                 if board[spot2][1] == "1":
-                    board[100][0] = board[100][0] +1
+                    board[100][0] = board[100][0] + 1
                 elif board[spot2][1] == "2":
-                    board[-100][0] = board[-100][0] +1
-
+                    board[-100][0] = board[-100][0] + 1
+    
                 board[spot1][0] = board[spot1][0] - 1
                 board[spot2][1] = board[spot1][1]
-
-
-                if board[spot1][0] == 0:
-                    board[spot1][1] = "0"
-
                 turn_correct = True
-
+    
             else:
                 text = FONT.render("player can't go", True, RED)
                 text_rect = text.get_rect()
@@ -175,60 +219,13 @@ def turn(screen, board, color, num, spot):
                 screen.blit(text, text_rect)
 
     except socket.error as err:
+        logging.debug('received socket error ' + str(err))
         turn_correct = False
     finally:
         return board, turn_correct
 
-def turn_eaten_player(screen, board, color, num, spot):
 
-    try:
-        turn_correct = False
-        spot1 =spot
-        if color == "1":# white
-            spot2 = 25 - num
-        elif color == "2":#blue
-            spot2 =num
-
-
-
-
-        if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
-
-            board[spot1][0] = board[spot1][0] - 1
-            board[spot2][0] = board[spot2][0] + 1
-
-            board[spot2][1] = board[spot1][1]
-
-
-            turn_correct = True
-        elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
-            print("got to eat")
-            if board[spot2][1] == "1":
-                board[100][0] = board[100][0] +1
-            elif board[spot2][1] == "2":
-                board[-100][0] = board[-100][0] +1
-
-            board[spot1][0] = board[spot1][0] - 1
-            board[spot2][1] = board[spot1][1]
-
-
-
-            turn_correct = True
-
-
-
-        else:
-            text = FONT.render("player can't go", True, RED)
-            text_rect = text.get_rect()
-            text_rect.center = (371, 600)
-            screen.blit(text, text_rect)
-
-    except socket.error as err:
-        turn_correct = False
-    finally:
-        return board, turn_correct
-
-def cangetout(board, color):
+def can_get_out(board, color):
     """
     check if the player can get out according to the board
     :param board: dictionary of the board
@@ -237,15 +234,15 @@ def cangetout(board, color):
     """
     value = True
     if color == "1":
-        for spot in board.keys():
-            if spot > 6:
-                if board[spot][0] > 0 and board[spot][1] == "1":
+        for s in board.keys():
+            if s > 6:
+                if board[s][0] > 0 and board[s][1] == "1":
                     value = False
 
     elif color == "2":
-        for spot in board.keys():
-            if spot < 19 and board[spot][0] > 0:
-                if board[spot][0] > 0 and board[spot][1] == "2":
+        for s in board.keys():
+            if s < 19 and board[s][0] > 0:
+                if board[s][0] > 0 and board[s][1] == "2":
                     value = False
     return value
 
@@ -254,7 +251,6 @@ def print_num(screen, num):
     """
     print the num for this turn on the screen
     """
-    # get a number and print it
     text = FONT.render("choose player to walk " + str(num) + " steps", True, RED)
     text_rect = text.get_rect()
     text_rect.center = (371, 50)
@@ -298,13 +294,12 @@ def end_screen(color, board, screen):
         return
 
 
-
 def waiting_screen(screen, my_socket):
     """
     drawing a waiting screen until receive the first msg from server
     :param screen: screen
     :param my_socket: socket of client
-    :return: func and board- the msg from server to start the game
+    :return: func and board - the msg from server to start the game
     """
     try:
         finish = False
@@ -315,8 +310,8 @@ def waiting_screen(screen, my_socket):
 
             rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
             if len(rlist) > 0:
-                func, board = protocol.receive_protocol(my_socket)
-                return func, board
+                func, board1 = protocol.receive_protocol(my_socket)
+                return func, board1
 
             else:
                 text = FONT.render("waiting for another player", True, BLUE)
@@ -339,18 +334,17 @@ def main():
         pygame.display.set_caption("Game")
 
         func, board = waiting_screen(screen, my_socket)
-
+        color = 0
         if func == "11":
             color = "1"
         elif func == "12":
             color = "2"
-        else:
-            color = "-1"
+
         logging.debug("color: " + color)
 
         got_board = False
         finish = False
-        if color != "-1":
+        if color != "0":
             while not finish:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
@@ -365,11 +359,11 @@ def main():
                         logging.debug("received: " + func)
                         if func == "20":
                             board = board2
-                            num = random.randint(1, 6)
-                            logging.debug("num for this turn: " + str(num))
                             got_board = True
                             start_time = time.time()
                             time_left = DURATION
+                            num = random.randint(1, 6)
+                            logging.debug("num for this turn: " + str(num))
 
                         elif func == "30" or func == "31" or func == "32":
                             logging.debug("GAME OVER")
@@ -382,7 +376,6 @@ def main():
                     print_num(screen, num)
                     turn_correct = False
                     if not turn_correct:
-
                         if time_left > 0:
                             elapsed_time = time.time() - start_time
                             time_left = max(DURATION - int(elapsed_time), 0)
@@ -397,23 +390,20 @@ def main():
                                     x, y = pygame.mouse.get_pos()
                                     spot = find_spot(x, y)
                                     logging.debug("press on spot: " + str(spot))
-                                    if (color == "1" and board[100][0] > 0) or (color == "2" and board[-100][0] > 0): # eaten player
-                                        if (color == "1" and spot == 100) or (color == "2" and spot ==-100):
-                                            print("i want to back")
-                                            print(board[100][1] + "" + board[-100][1])
+                                    if (color == "1" and board[100][0] > 0) or (color == "2" and board[-100][0] > 0):
+                                        if (color == "1" and spot == 100) or (color == "2" and spot == -100):
+                                            logging.debug("back to game")
                                             board, turn_correct = turn_eaten_player(screen, board, color, num, spot)
-                                            print(board[100][1] + "" + board[-100][1])
 
                                     else:
                                         if 0 < spot < 25:
                                             if board[spot][1] == color:
-                                                print(board[100][1] + "" + board[-100][1])
+                                                logging.debug("regular turn")
                                                 board, turn_correct = turn(screen, board, color, num, spot)
-                                                print(board[100][1] + "" + board[-100][1])
 
                                                 screen.blit(BOARD_IMG, (0, 0))
                                                 draw_board(board, color, screen)
-                                logging.debug(turn_correct)
+                                    logging.debug(turn_correct)
                         else:
                             turn_correct = True
 
@@ -440,54 +430,49 @@ if __name__ == "__main__":
         os.makedirs(LOG_DIR)
     logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
 
-    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
-             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
-    assert not cangetout(board, "1")
-    assert not cangetout(board, "2")
+    board_a = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+               7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+               13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+               19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    assert not can_get_out(board_a, "1")
+    assert not can_get_out(board_a, "2")
 
-    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [5, "1"], 5: [5, "1"], 6: [5, "1"],
-             7: [0, "0"], 8: [0, "0"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-             13: [0, "0"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [0, "0"]}
-    assert cangetout(board, "1")
+    board_a = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [5, "1"], 5: [5, "1"], 6: [5, "1"],
+               7: [0, "0"], 8: [0, "0"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+               13: [0, "0"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+               19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [0, "0"]}
+    assert can_get_out(board_a, "1")
 
     assert find_spot(120, 110) == 24
     assert find_spot(120, 400) == 1
     assert find_spot(300, 400) == 5
 
-    screen = pygame.display.set_mode(SIZE)
-    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
-             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
-    color = "2"
-    num = 1
-    spot = 1
-    board2 = {1: [1, "2"], 2: [1, "2"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
-              7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-              13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-              19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
-    assert turn(screen, board, color, num, spot) == (board2, True)
+    screen_a = pygame.display.set_mode(SIZE)
+    board_a = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+               7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+               13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+               19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    color_a = "2"
+    num_a = 1
+    spot_a = 1
+    assert turn(screen_a, board_a, color_a, num_a, spot_a) == (board_a, True)
 
-    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
-             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
-    color = "2"
-    num = 5
-    spot = 1
-    assert turn(screen, board, color, num, spot) == (board, False)
+    board_a = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+               7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+               13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+               19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    color_a = "2"
+    num_a = 5
+    spot_a = 1
+    assert turn(screen_a, board_a, color_a, num_a, spot_a) == (board_a, False)
 
-    board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
-             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+    board_a = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+               7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+               13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+               19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
 
-    assert protocol.send_protocol("11", board) == b'11262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
-    assert protocol.send_protocol("20", board) == b'20262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
-
+    assert protocol.send_protocol("11", board_a) == b'11262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
+    assert protocol.send_protocol("20", board_a) == b'20262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
 
     main()
     logging.debug("close screen")
