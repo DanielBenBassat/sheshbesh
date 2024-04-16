@@ -6245,3 +6245,1700 @@ DEBUG | 2024-04-15 16:58:24,282 | press on spot: 1
 DEBUG | 2024-04-15 16:58:24,292 | True
 DEBUG | 2024-04-15 16:58:24,292 | send: 20
 DEBUG | 2024-04-15 16:58:31,221 | close screen
+DEBUG | 2024-04-16 08:20:16,243 | color: 1
+DEBUG | 2024-04-16 08:20:16,258 | received: 20
+DEBUG | 2024-04-16 08:20:16,258 | num for this turn: 6
+DEBUG | 2024-04-16 08:20:19,668 | press on spot: 20
+DEBUG | 2024-04-16 08:20:19,668 | False
+DEBUG | 2024-04-16 08:20:20,540 | press on spot: 19
+DEBUG | 2024-04-16 08:20:20,540 | False
+DEBUG | 2024-04-16 08:20:21,304 | press on spot: 18
+DEBUG | 2024-04-16 08:20:21,304 | False
+DEBUG | 2024-04-16 08:20:46,384 | send: 20
+DEBUG | 2024-04-16 08:21:16,513 | received: 20
+DEBUG | 2024-04-16 08:21:16,513 | num for this turn: 3
+DEBUG | 2024-04-16 08:21:46,679 | send: 20
+DEBUG | 2024-04-16 08:22:16,839 | received: 20
+DEBUG | 2024-04-16 08:22:16,839 | num for this turn: 5
+DEBUG | 2024-04-16 08:22:47,062 | send: 20
+DEBUG | 2024-04-16 08:23:17,246 | received: 20
+DEBUG | 2024-04-16 08:23:17,246 | num for this turn: 4
+DEBUG | 2024-04-16 08:23:47,443 | send: 20
+DEBUG | 2024-04-16 08:24:17,585 | received: 20
+DEBUG | 2024-04-16 08:24:17,585 | num for this turn: 2
+DEBUG | 2024-04-16 08:24:47,726 | send: 20
+DEBUG | 2024-04-16 08:25:17,916 | received: 20
+DEBUG | 2024-04-16 08:25:17,916 | num for this turn: 3
+DEBUG | 2024-04-16 08:25:48,075 | send: 20
+DEBUG | 2024-04-16 08:26:18,234 | received: 20
+DEBUG | 2024-04-16 08:26:18,234 | num for this turn: 3
+DEBUG | 2024-04-16 08:26:48,439 | send: 20
+DEBUG | 2024-04-16 08:27:18,644 | received: 20
+DEBUG | 2024-04-16 08:27:18,644 | num for this turn: 4
+DEBUG | 2024-04-16 08:27:48,775 | send: 20
+DEBUG | 2024-04-16 08:28:18,936 | received: 20
+DEBUG | 2024-04-16 08:28:18,936 | num for this turn: 2
+DEBUG | 2024-04-16 08:28:49,131 | send: 20
+DEBUG | 2024-04-16 08:29:19,345 | received: 20
+DEBUG | 2024-04-16 08:29:19,346 | num for this turn: 2
+DEBUG | 2024-04-16 08:29:49,551 | send: 20
+DEBUG | 2024-04-16 08:30:19,771 | received: 20
+DEBUG | 2024-04-16 08:30:19,771 | num for this turn: 2
+DEBUG | 2024-04-16 08:30:49,909 | send: 20
+DEBUG | 2024-04-16 08:31:20,032 | received: 20
+DEBUG | 2024-04-16 08:31:20,032 | num for this turn: 4
+DEBUG | 2024-04-16 08:31:50,168 | send: 20
+DEBUG | 2024-04-16 08:32:20,311 | received: 20
+DEBUG | 2024-04-16 08:32:20,311 | num for this turn: 6
+DEBUG | 2024-04-16 08:32:50,426 | send: 20
+DEBUG | 2024-04-16 08:33:20,658 | received: 20
+DEBUG | 2024-04-16 08:33:20,659 | num for this turn: 3
+DEBUG | 2024-04-16 08:33:50,828 | send: 20
+DEBUG | 2024-04-16 08:34:20,967 | received: 20
+DEBUG | 2024-04-16 08:34:20,967 | num for this turn: 1
+DEBUG | 2024-04-16 08:34:51,110 | send: 20
+DEBUG | 2024-04-16 08:35:21,316 | received: 20
+DEBUG | 2024-04-16 08:35:21,316 | num for this turn: 3
+DEBUG | 2024-04-16 08:35:51,464 | send: 20
+DEBUG | 2024-04-16 08:36:21,667 | received: 20
+DEBUG | 2024-04-16 08:36:21,667 | num for this turn: 2
+DEBUG | 2024-04-16 08:36:51,850 | send: 20
+DEBUG | 2024-04-16 08:37:22,041 | received: 20
+DEBUG | 2024-04-16 08:37:22,041 | num for this turn: 3
+DEBUG | 2024-04-16 08:37:52,246 | send: 20
+DEBUG | 2024-04-16 08:38:22,359 | received: 20
+DEBUG | 2024-04-16 08:38:22,359 | num for this turn: 1
+DEBUG | 2024-04-16 08:38:52,599 | send: 20
+DEBUG | 2024-04-16 08:39:22,748 | received: 20
+DEBUG | 2024-04-16 08:39:22,748 | num for this turn: 5
+DEBUG | 2024-04-16 08:39:52,955 | send: 20
+DEBUG | 2024-04-16 08:40:23,077 | received: 20
+DEBUG | 2024-04-16 08:40:23,077 | num for this turn: 5
+DEBUG | 2024-04-16 08:40:30,777 | color: 1
+DEBUG | 2024-04-16 08:40:30,779 | color: 2
+DEBUG | 2024-04-16 08:40:30,789 | received: 20
+DEBUG | 2024-04-16 08:40:30,789 | num for this turn: 4
+DEBUG | 2024-04-16 08:40:46,566 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:40:46,567 | close screen
+DEBUG | 2024-04-16 08:40:51,832 | color: 1
+DEBUG | 2024-04-16 08:40:51,840 | color: 2
+DEBUG | 2024-04-16 08:40:51,845 | received: 20
+DEBUG | 2024-04-16 08:40:51,846 | num for this turn: 4
+DEBUG | 2024-04-16 08:40:57,402 | press on spot: 24
+DEBUG | 2024-04-16 08:40:57,412 | True
+DEBUG | 2024-04-16 08:40:57,412 | send: 20
+DEBUG | 2024-04-16 08:40:57,419 | received: 20
+DEBUG | 2024-04-16 08:40:57,419 | num for this turn: 2
+DEBUG | 2024-04-16 08:41:01,713 | press on spot: 1
+DEBUG | 2024-04-16 08:41:01,723 | True
+DEBUG | 2024-04-16 08:41:01,723 | send: 20
+DEBUG | 2024-04-16 08:41:01,730 | received: 20
+DEBUG | 2024-04-16 08:41:01,730 | num for this turn: 5
+DEBUG | 2024-04-16 08:41:06,454 | press on spot: 6
+DEBUG | 2024-04-16 08:41:06,465 | True
+DEBUG | 2024-04-16 08:41:06,465 | send: 20
+DEBUG | 2024-04-16 08:41:06,466 | received: 20
+DEBUG | 2024-04-16 08:41:06,468 | num for this turn: 6
+DEBUG | 2024-04-16 08:41:36,579 | send: 20
+DEBUG | 2024-04-16 08:41:36,583 | received: 20
+DEBUG | 2024-04-16 08:41:36,583 | num for this turn: 5
+DEBUG | 2024-04-16 08:41:50,669 | press on spot: 6
+DEBUG | 2024-04-16 08:41:50,681 | True
+DEBUG | 2024-04-16 08:41:50,682 | send: 20
+DEBUG | 2024-04-16 08:41:50,688 | received: 20
+DEBUG | 2024-04-16 08:41:50,688 | num for this turn: 4
+DEBUG | 2024-04-16 08:41:57,748 | press on spot: 19
+DEBUG | 2024-04-16 08:41:57,748 | False
+DEBUG | 2024-04-16 08:41:59,717 | press on spot: 19
+DEBUG | 2024-04-16 08:41:59,717 | False
+DEBUG | 2024-04-16 08:42:00,604 | press on spot: -100
+DEBUG | 2024-04-16 08:42:00,604 | False
+DEBUG | 2024-04-16 08:42:01,042 | press on spot: -100
+DEBUG | 2024-04-16 08:42:01,042 | False
+DEBUG | 2024-04-16 08:42:20,897 | send: 20
+DEBUG | 2024-04-16 08:42:20,902 | received: 20
+DEBUG | 2024-04-16 08:42:20,902 | num for this turn: 4
+DEBUG | 2024-04-16 08:42:51,119 | send: 20
+DEBUG | 2024-04-16 08:42:51,120 | received: 20
+DEBUG | 2024-04-16 08:42:51,120 | num for this turn: 5
+DEBUG | 2024-04-16 08:43:14,003 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:43:14,003 | close screen
+DEBUG | 2024-04-16 08:43:18,829 | color: 2
+DEBUG | 2024-04-16 08:43:18,831 | color: 1
+DEBUG | 2024-04-16 08:43:18,847 | received: 20
+DEBUG | 2024-04-16 08:43:18,847 | num for this turn: 4
+DEBUG | 2024-04-16 08:43:23,421 | press on spot: 24
+DEBUG | 2024-04-16 08:43:23,431 | True
+DEBUG | 2024-04-16 08:43:23,431 | send: 20
+DEBUG | 2024-04-16 08:43:23,441 | received: 20
+DEBUG | 2024-04-16 08:43:23,441 | num for this turn: 3
+DEBUG | 2024-04-16 08:43:27,185 | press on spot: 17
+DEBUG | 2024-04-16 08:43:27,194 | True
+DEBUG | 2024-04-16 08:43:27,194 | send: 20
+DEBUG | 2024-04-16 08:43:27,204 | received: 20
+DEBUG | 2024-04-16 08:43:27,205 | num for this turn: 6
+DEBUG | 2024-04-16 08:43:57,399 | send: 20
+DEBUG | 2024-04-16 08:43:57,401 | received: 20
+DEBUG | 2024-04-16 08:43:57,401 | num for this turn: 2
+DEBUG | 2024-04-16 08:44:27,583 | send: 20
+DEBUG | 2024-04-16 08:44:27,586 | received: 20
+DEBUG | 2024-04-16 08:44:27,586 | num for this turn: 5
+DEBUG | 2024-04-16 08:44:57,780 | send: 20
+DEBUG | 2024-04-16 08:44:57,784 | received: 20
+DEBUG | 2024-04-16 08:44:57,784 | num for this turn: 1
+DEBUG | 2024-04-16 08:45:06,826 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:45:06,827 | close screen
+DEBUG | 2024-04-16 08:45:50,480 | color: -1
+DEBUG | 2024-04-16 08:45:50,480 | close screen
+DEBUG | 2024-04-16 08:45:55,444 | color: 1
+DEBUG | 2024-04-16 08:45:55,450 | color: 2
+DEBUG | 2024-04-16 08:45:55,461 | received: 20
+DEBUG | 2024-04-16 08:45:55,462 | num for this turn: 4
+DEBUG | 2024-04-16 08:45:59,085 | press on spot: 24
+DEBUG | 2024-04-16 08:45:59,095 | True
+DEBUG | 2024-04-16 08:45:59,095 | send: 20
+DEBUG | 2024-04-16 08:45:59,099 | received: 20
+DEBUG | 2024-04-16 08:45:59,099 | num for this turn: 3
+DEBUG | 2024-04-16 08:46:03,715 | press on spot: 17
+DEBUG | 2024-04-16 08:46:03,724 | True
+DEBUG | 2024-04-16 08:46:03,724 | send: 20
+DEBUG | 2024-04-16 08:46:03,730 | received: 20
+DEBUG | 2024-04-16 08:46:03,730 | num for this turn: 3
+DEBUG | 2024-04-16 08:46:29,096 | press on spot: 6
+DEBUG | 2024-04-16 08:46:29,096 | False
+DEBUG | 2024-04-16 08:46:30,634 | press on spot: 100
+DEBUG | 2024-04-16 08:46:30,634 | False
+DEBUG | 2024-04-16 08:46:31,728 | press on spot: 100
+DEBUG | 2024-04-16 08:46:31,728 | False
+DEBUG | 2024-04-16 08:46:32,507 | press on spot: 100
+DEBUG | 2024-04-16 08:46:32,507 | False
+DEBUG | 2024-04-16 08:46:33,165 | press on spot: 0
+DEBUG | 2024-04-16 08:46:33,165 | False
+DEBUG | 2024-04-16 08:46:33,388 | press on spot: 0
+DEBUG | 2024-04-16 08:46:33,388 | False
+DEBUG | 2024-04-16 08:46:33,824 | press on spot: 100
+DEBUG | 2024-04-16 08:46:33,824 | False
+DEBUG | 2024-04-16 08:46:33,944 | send: 20
+DEBUG | 2024-04-16 08:46:33,948 | received: 20
+DEBUG | 2024-04-16 08:46:33,948 | num for this turn: 3
+DEBUG | 2024-04-16 08:46:40,468 | press on spot: 20
+DEBUG | 2024-04-16 08:46:40,477 | True
+DEBUG | 2024-04-16 08:46:40,478 | send: 20
+DEBUG | 2024-04-16 08:46:40,484 | received: 20
+DEBUG | 2024-04-16 08:46:40,484 | num for this turn: 1
+DEBUG | 2024-04-16 08:46:45,768 | press on spot: 6
+DEBUG | 2024-04-16 08:46:45,768 | False
+DEBUG | 2024-04-16 08:46:52,851 | received: -1
+DEBUG | 2024-04-16 08:46:52,872 | received: -1
+DEBUG | 2024-04-16 08:46:52,900 | received: -1
+DEBUG | 2024-04-16 08:46:52,961 | received: -1
+DEBUG | 2024-04-16 08:46:53,031 | received: -1
+DEBUG | 2024-04-16 08:46:53,056 | received: -1
+DEBUG | 2024-04-16 08:46:53,077 | received: -1
+DEBUG | 2024-04-16 08:46:53,103 | received: -1
+DEBUG | 2024-04-16 08:46:53,136 | received: -1
+DEBUG | 2024-04-16 08:46:53,155 | received: -1
+DEBUG | 2024-04-16 08:46:53,181 | received: -1
+DEBUG | 2024-04-16 08:46:53,200 | received: -1
+DEBUG | 2024-04-16 08:46:53,214 | received: -1
+DEBUG | 2024-04-16 08:46:53,230 | received: -1
+DEBUG | 2024-04-16 08:46:53,247 | received: -1
+DEBUG | 2024-04-16 08:46:53,270 | received: -1
+DEBUG | 2024-04-16 08:46:53,300 | received: -1
+DEBUG | 2024-04-16 08:46:53,315 | received: -1
+DEBUG | 2024-04-16 08:46:53,331 | received: -1
+DEBUG | 2024-04-16 08:46:53,348 | received: -1
+DEBUG | 2024-04-16 08:46:53,364 | received: -1
+DEBUG | 2024-04-16 08:46:53,380 | received: -1
+DEBUG | 2024-04-16 08:46:53,395 | received: -1
+DEBUG | 2024-04-16 08:46:53,410 | received: -1
+DEBUG | 2024-04-16 08:46:53,426 | received: -1
+DEBUG | 2024-04-16 08:46:53,443 | received: -1
+DEBUG | 2024-04-16 08:46:53,458 | received: -1
+DEBUG | 2024-04-16 08:46:53,475 | received: -1
+DEBUG | 2024-04-16 08:46:53,491 | received: -1
+DEBUG | 2024-04-16 08:46:53,508 | received: -1
+DEBUG | 2024-04-16 08:46:53,524 | received: -1
+DEBUG | 2024-04-16 08:46:53,539 | received: -1
+DEBUG | 2024-04-16 08:46:53,609 | received: -1
+DEBUG | 2024-04-16 08:46:53,628 | received: -1
+DEBUG | 2024-04-16 08:46:53,650 | received: -1
+DEBUG | 2024-04-16 08:46:53,668 | received: -1
+DEBUG | 2024-04-16 08:46:53,686 | received: -1
+DEBUG | 2024-04-16 08:46:53,703 | received: -1
+DEBUG | 2024-04-16 08:46:53,727 | received: -1
+DEBUG | 2024-04-16 08:46:53,771 | received: -1
+DEBUG | 2024-04-16 08:46:53,794 | received: -1
+DEBUG | 2024-04-16 08:46:53,818 | received: -1
+DEBUG | 2024-04-16 08:46:53,838 | received: -1
+DEBUG | 2024-04-16 08:46:53,861 | received: -1
+DEBUG | 2024-04-16 08:46:53,884 | received: -1
+DEBUG | 2024-04-16 08:46:53,918 | received: -1
+DEBUG | 2024-04-16 08:46:53,946 | received: -1
+DEBUG | 2024-04-16 08:46:53,969 | received: -1
+DEBUG | 2024-04-16 08:46:54,000 | received: -1
+DEBUG | 2024-04-16 08:46:54,049 | received: -1
+DEBUG | 2024-04-16 08:46:54,085 | received: -1
+DEBUG | 2024-04-16 08:46:54,121 | received: -1
+DEBUG | 2024-04-16 08:46:54,163 | received: -1
+DEBUG | 2024-04-16 08:46:54,186 | received: -1
+DEBUG | 2024-04-16 08:46:54,204 | received: -1
+DEBUG | 2024-04-16 08:46:54,225 | received: -1
+DEBUG | 2024-04-16 08:46:54,250 | received: -1
+DEBUG | 2024-04-16 08:46:54,268 | received: -1
+DEBUG | 2024-04-16 08:46:54,286 | received: -1
+DEBUG | 2024-04-16 08:46:54,307 | received: -1
+DEBUG | 2024-04-16 08:46:54,328 | received: -1
+DEBUG | 2024-04-16 08:46:54,348 | received: -1
+DEBUG | 2024-04-16 08:46:54,368 | received: -1
+DEBUG | 2024-04-16 08:46:54,386 | received: -1
+DEBUG | 2024-04-16 08:46:54,403 | received: -1
+DEBUG | 2024-04-16 08:46:54,426 | received: -1
+DEBUG | 2024-04-16 08:46:54,447 | received: -1
+DEBUG | 2024-04-16 08:46:54,464 | received: -1
+DEBUG | 2024-04-16 08:46:54,482 | received: -1
+DEBUG | 2024-04-16 08:46:54,550 | received: -1
+DEBUG | 2024-04-16 08:46:54,627 | received: -1
+DEBUG | 2024-04-16 08:46:54,672 | received: -1
+DEBUG | 2024-04-16 08:46:54,706 | received: -1
+DEBUG | 2024-04-16 08:46:54,742 | received: -1
+DEBUG | 2024-04-16 08:46:54,776 | received: -1
+DEBUG | 2024-04-16 08:46:54,796 | received: -1
+DEBUG | 2024-04-16 08:46:54,816 | received: -1
+DEBUG | 2024-04-16 08:46:54,835 | received: -1
+DEBUG | 2024-04-16 08:46:54,855 | received: -1
+DEBUG | 2024-04-16 08:46:54,875 | received: -1
+DEBUG | 2024-04-16 08:46:54,893 | received: -1
+DEBUG | 2024-04-16 08:46:54,911 | received: -1
+DEBUG | 2024-04-16 08:46:54,929 | received: -1
+DEBUG | 2024-04-16 08:46:54,946 | received: -1
+DEBUG | 2024-04-16 08:46:54,964 | received: -1
+DEBUG | 2024-04-16 08:46:54,982 | received: -1
+DEBUG | 2024-04-16 08:46:54,999 | received: -1
+DEBUG | 2024-04-16 08:46:55,017 | received: -1
+DEBUG | 2024-04-16 08:46:55,036 | received: -1
+DEBUG | 2024-04-16 08:46:55,056 | received: -1
+DEBUG | 2024-04-16 08:46:55,079 | received: -1
+DEBUG | 2024-04-16 08:46:55,095 | received: -1
+DEBUG | 2024-04-16 08:46:55,112 | received: -1
+DEBUG | 2024-04-16 08:46:55,124 | received: -1
+DEBUG | 2024-04-16 08:46:55,141 | received: -1
+DEBUG | 2024-04-16 08:46:55,159 | received: -1
+DEBUG | 2024-04-16 08:46:55,177 | received: -1
+DEBUG | 2024-04-16 08:46:55,193 | received: -1
+DEBUG | 2024-04-16 08:46:55,211 | received: -1
+DEBUG | 2024-04-16 08:46:55,227 | received: -1
+DEBUG | 2024-04-16 08:46:55,244 | received: -1
+DEBUG | 2024-04-16 08:46:55,261 | received: -1
+DEBUG | 2024-04-16 08:46:55,278 | received: -1
+DEBUG | 2024-04-16 08:46:55,301 | received: -1
+DEBUG | 2024-04-16 08:46:55,368 | received: -1
+DEBUG | 2024-04-16 08:46:55,381 | received: -1
+DEBUG | 2024-04-16 08:46:55,400 | received: -1
+DEBUG | 2024-04-16 08:46:55,413 | received: -1
+DEBUG | 2024-04-16 08:46:55,430 | received: -1
+DEBUG | 2024-04-16 08:46:55,471 | received: -1
+DEBUG | 2024-04-16 08:46:55,487 | received: -1
+DEBUG | 2024-04-16 08:46:55,507 | received: -1
+DEBUG | 2024-04-16 08:46:55,524 | received: -1
+DEBUG | 2024-04-16 08:46:55,538 | received: -1
+DEBUG | 2024-04-16 08:46:55,558 | received: -1
+DEBUG | 2024-04-16 08:46:55,572 | received: -1
+DEBUG | 2024-04-16 08:46:55,588 | received: -1
+DEBUG | 2024-04-16 08:46:55,603 | received: -1
+DEBUG | 2024-04-16 08:46:55,620 | received: -1
+DEBUG | 2024-04-16 08:46:55,638 | received: -1
+DEBUG | 2024-04-16 08:46:55,654 | received: -1
+DEBUG | 2024-04-16 08:46:55,671 | received: -1
+DEBUG | 2024-04-16 08:46:55,688 | received: -1
+DEBUG | 2024-04-16 08:46:55,706 | received: -1
+DEBUG | 2024-04-16 08:46:55,722 | received: -1
+DEBUG | 2024-04-16 08:46:55,739 | received: -1
+DEBUG | 2024-04-16 08:46:55,755 | received: -1
+DEBUG | 2024-04-16 08:46:55,774 | received: -1
+DEBUG | 2024-04-16 08:46:55,791 | received: -1
+DEBUG | 2024-04-16 08:46:55,808 | received: -1
+DEBUG | 2024-04-16 08:46:55,825 | received: -1
+DEBUG | 2024-04-16 08:46:55,841 | received: -1
+DEBUG | 2024-04-16 08:46:55,859 | received: -1
+DEBUG | 2024-04-16 08:46:55,873 | received: -1
+DEBUG | 2024-04-16 08:46:55,890 | received: -1
+DEBUG | 2024-04-16 08:46:55,905 | received: -1
+DEBUG | 2024-04-16 08:46:55,921 | received: -1
+DEBUG | 2024-04-16 08:46:55,937 | received: -1
+DEBUG | 2024-04-16 08:46:55,955 | received: -1
+DEBUG | 2024-04-16 08:46:55,982 | received: -1
+DEBUG | 2024-04-16 08:46:55,996 | received: -1
+DEBUG | 2024-04-16 08:46:56,011 | received: -1
+DEBUG | 2024-04-16 08:46:56,026 | received: -1
+DEBUG | 2024-04-16 08:46:56,044 | received: -1
+DEBUG | 2024-04-16 08:46:56,074 | received: -1
+DEBUG | 2024-04-16 08:46:56,087 | received: -1
+DEBUG | 2024-04-16 08:46:56,101 | received: -1
+DEBUG | 2024-04-16 08:46:56,119 | received: -1
+DEBUG | 2024-04-16 08:46:56,134 | received: -1
+DEBUG | 2024-04-16 08:46:56,151 | received: -1
+DEBUG | 2024-04-16 08:46:56,168 | received: -1
+DEBUG | 2024-04-16 08:46:56,185 | received: -1
+DEBUG | 2024-04-16 08:46:56,208 | received: -1
+DEBUG | 2024-04-16 08:46:56,224 | received: -1
+DEBUG | 2024-04-16 08:46:56,241 | received: -1
+DEBUG | 2024-04-16 08:46:56,253 | received: -1
+DEBUG | 2024-04-16 08:46:56,269 | received: -1
+DEBUG | 2024-04-16 08:46:56,287 | received: -1
+DEBUG | 2024-04-16 08:46:56,301 | received: -1
+DEBUG | 2024-04-16 08:46:56,318 | received: -1
+DEBUG | 2024-04-16 08:46:56,333 | received: -1
+DEBUG | 2024-04-16 08:46:56,350 | received: -1
+DEBUG | 2024-04-16 08:46:56,368 | received: -1
+DEBUG | 2024-04-16 08:46:56,384 | received: -1
+DEBUG | 2024-04-16 08:46:56,400 | received: -1
+DEBUG | 2024-04-16 08:46:56,416 | received: -1
+DEBUG | 2024-04-16 08:46:56,430 | received: -1
+DEBUG | 2024-04-16 08:46:56,448 | received: -1
+DEBUG | 2024-04-16 08:46:56,463 | received: -1
+DEBUG | 2024-04-16 08:46:56,480 | received: -1
+DEBUG | 2024-04-16 08:46:56,497 | received: -1
+DEBUG | 2024-04-16 08:46:56,515 | received: -1
+DEBUG | 2024-04-16 08:46:56,530 | received: -1
+DEBUG | 2024-04-16 08:46:56,547 | received: -1
+DEBUG | 2024-04-16 08:46:56,564 | received: -1
+DEBUG | 2024-04-16 08:46:56,580 | received: -1
+DEBUG | 2024-04-16 08:46:56,596 | received: -1
+DEBUG | 2024-04-16 08:46:56,612 | received: -1
+DEBUG | 2024-04-16 08:46:56,630 | received: -1
+DEBUG | 2024-04-16 08:46:56,646 | received: -1
+DEBUG | 2024-04-16 08:46:56,662 | received: -1
+DEBUG | 2024-04-16 08:46:56,678 | received: -1
+DEBUG | 2024-04-16 08:46:56,695 | received: -1
+DEBUG | 2024-04-16 08:46:56,713 | received: -1
+DEBUG | 2024-04-16 08:46:56,729 | received: -1
+DEBUG | 2024-04-16 08:46:56,745 | received: -1
+DEBUG | 2024-04-16 08:46:56,762 | received: -1
+DEBUG | 2024-04-16 08:46:56,779 | received: -1
+DEBUG | 2024-04-16 08:46:56,794 | received: -1
+DEBUG | 2024-04-16 08:46:56,811 | received: -1
+DEBUG | 2024-04-16 08:46:56,828 | received: -1
+DEBUG | 2024-04-16 08:46:56,844 | received: -1
+DEBUG | 2024-04-16 08:46:56,872 | received: -1
+DEBUG | 2024-04-16 08:46:56,884 | received: -1
+DEBUG | 2024-04-16 08:46:56,897 | received: -1
+DEBUG | 2024-04-16 08:46:56,914 | received: -1
+DEBUG | 2024-04-16 08:46:56,930 | received: -1
+DEBUG | 2024-04-16 08:46:56,946 | received: -1
+DEBUG | 2024-04-16 08:46:56,962 | received: -1
+DEBUG | 2024-04-16 08:46:56,979 | received: -1
+DEBUG | 2024-04-16 08:46:56,995 | received: -1
+DEBUG | 2024-04-16 08:46:57,017 | received: -1
+DEBUG | 2024-04-16 08:46:57,028 | received: -1
+DEBUG | 2024-04-16 08:46:57,044 | received: -1
+DEBUG | 2024-04-16 08:46:57,060 | received: -1
+DEBUG | 2024-04-16 08:46:57,077 | received: -1
+DEBUG | 2024-04-16 08:46:57,095 | received: -1
+DEBUG | 2024-04-16 08:46:57,108 | received: -1
+DEBUG | 2024-04-16 08:46:57,124 | received: -1
+DEBUG | 2024-04-16 08:46:57,142 | received: -1
+DEBUG | 2024-04-16 08:46:57,157 | received: -1
+DEBUG | 2024-04-16 08:46:57,174 | received: -1
+DEBUG | 2024-04-16 08:46:57,191 | received: -1
+DEBUG | 2024-04-16 08:46:57,208 | received: -1
+DEBUG | 2024-04-16 08:46:57,224 | received: -1
+DEBUG | 2024-04-16 08:46:57,240 | received: -1
+DEBUG | 2024-04-16 08:46:57,256 | received: -1
+DEBUG | 2024-04-16 08:46:57,274 | received: -1
+DEBUG | 2024-04-16 08:46:57,290 | received: -1
+DEBUG | 2024-04-16 08:46:57,305 | received: -1
+DEBUG | 2024-04-16 08:46:57,321 | received: -1
+DEBUG | 2024-04-16 08:46:57,340 | received: -1
+DEBUG | 2024-04-16 08:46:57,355 | received: -1
+DEBUG | 2024-04-16 08:46:57,371 | received: -1
+DEBUG | 2024-04-16 08:46:57,387 | received: -1
+DEBUG | 2024-04-16 08:46:57,404 | received: -1
+DEBUG | 2024-04-16 08:46:57,424 | received: -1
+DEBUG | 2024-04-16 08:46:58,170 | color: 2
+DEBUG | 2024-04-16 08:46:58,173 | color: 1
+DEBUG | 2024-04-16 08:46:58,193 | received: 20
+DEBUG | 2024-04-16 08:46:58,194 | num for this turn: 5
+DEBUG | 2024-04-16 08:47:04,880 | press on spot: 8
+DEBUG | 2024-04-16 08:47:04,892 | True
+DEBUG | 2024-04-16 08:47:04,893 | send: 20
+DEBUG | 2024-04-16 08:47:04,896 | received: 20
+DEBUG | 2024-04-16 08:47:04,896 | num for this turn: 2
+DEBUG | 2024-04-16 08:47:16,819 | press on spot: 1
+DEBUG | 2024-04-16 08:47:16,835 | True
+DEBUG | 2024-04-16 08:47:16,835 | send: 20
+DEBUG | 2024-04-16 08:47:16,844 | received: 20
+DEBUG | 2024-04-16 08:47:16,845 | num for this turn: 3
+DEBUG | 2024-04-16 08:47:47,060 | send: 20
+DEBUG | 2024-04-16 08:47:47,064 | received: 20
+DEBUG | 2024-04-16 08:47:47,065 | num for this turn: 4
+DEBUG | 2024-04-16 08:48:17,256 | send: 20
+DEBUG | 2024-04-16 08:48:17,258 | received: 20
+DEBUG | 2024-04-16 08:48:17,258 | num for this turn: 3
+DEBUG | 2024-04-16 08:48:35,022 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:48:35,022 | close screen
+DEBUG | 2024-04-16 08:48:43,689 | color: 1
+DEBUG | 2024-04-16 08:48:43,693 | color: 2
+DEBUG | 2024-04-16 08:48:43,705 | received: 20
+DEBUG | 2024-04-16 08:48:43,706 | num for this turn: 2
+DEBUG | 2024-04-16 08:48:57,515 | press on spot: 24
+DEBUG | 2024-04-16 08:48:57,523 | True
+DEBUG | 2024-04-16 08:48:57,523 | send: 20
+DEBUG | 2024-04-16 08:48:57,530 | received: 20
+DEBUG | 2024-04-16 08:48:57,530 | num for this turn: 6
+DEBUG | 2024-04-16 08:49:07,927 | press on spot: 19
+DEBUG | 2024-04-16 08:49:07,937 | False
+DEBUG | 2024-04-16 08:49:14,071 | press on spot: 17
+DEBUG | 2024-04-16 08:49:14,079 | True
+DEBUG | 2024-04-16 08:49:14,079 | send: 20
+DEBUG | 2024-04-16 08:49:14,082 | received: 20
+DEBUG | 2024-04-16 08:49:14,082 | num for this turn: 4
+DEBUG | 2024-04-16 08:49:26,328 | press on spot: 8
+DEBUG | 2024-04-16 08:49:26,344 | True
+DEBUG | 2024-04-16 08:49:26,344 | send: 20
+DEBUG | 2024-04-16 08:49:26,345 | received: 20
+DEBUG | 2024-04-16 08:49:26,345 | num for this turn: 2
+DEBUG | 2024-04-16 08:49:39,804 | press on spot: 1
+DEBUG | 2024-04-16 08:49:39,813 | True
+DEBUG | 2024-04-16 08:49:39,813 | send: 20
+DEBUG | 2024-04-16 08:49:39,814 | received: 20
+DEBUG | 2024-04-16 08:49:39,814 | num for this turn: 6
+DEBUG | 2024-04-16 08:49:49,950 | press on spot: 8
+DEBUG | 2024-04-16 08:49:49,958 | True
+DEBUG | 2024-04-16 08:49:49,958 | send: 20
+DEBUG | 2024-04-16 08:49:49,958 | received: 20
+DEBUG | 2024-04-16 08:49:49,959 | num for this turn: 4
+DEBUG | 2024-04-16 08:50:05,782 | press on spot: 12
+DEBUG | 2024-04-16 08:50:05,792 | True
+DEBUG | 2024-04-16 08:50:05,792 | send: 20
+DEBUG | 2024-04-16 08:50:05,796 | received: 20
+DEBUG | 2024-04-16 08:50:05,796 | num for this turn: 3
+DEBUG | 2024-04-16 08:50:34,629 | press on spot: 4
+DEBUG | 2024-04-16 08:50:34,638 | True
+DEBUG | 2024-04-16 08:50:34,638 | send: 20
+DEBUG | 2024-04-16 08:50:34,639 | received: 20
+DEBUG | 2024-04-16 08:50:34,639 | num for this turn: 6
+DEBUG | 2024-04-16 08:51:04,764 | send: 20
+DEBUG | 2024-04-16 08:51:04,769 | received: 20
+DEBUG | 2024-04-16 08:51:04,769 | num for this turn: 2
+DEBUG | 2024-04-16 08:51:34,981 | send: 20
+DEBUG | 2024-04-16 08:51:34,982 | received: 20
+DEBUG | 2024-04-16 08:51:34,982 | num for this turn: 1
+DEBUG | 2024-04-16 08:52:05,093 | send: 20
+DEBUG | 2024-04-16 08:52:05,094 | received: 20
+DEBUG | 2024-04-16 08:52:05,094 | num for this turn: 6
+DEBUG | 2024-04-16 08:52:35,344 | send: 20
+DEBUG | 2024-04-16 08:52:35,382 | received: 20
+DEBUG | 2024-04-16 08:52:35,382 | num for this turn: 2
+DEBUG | 2024-04-16 08:53:02,436 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:53:02,436 | close screen
+DEBUG | 2024-04-16 08:53:05,581 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:53:05,581 | close screen
+DEBUG | 2024-04-16 08:53:08,493 | color: 1
+DEBUG | 2024-04-16 08:53:08,499 | color: 2
+DEBUG | 2024-04-16 08:53:08,508 | received: 20
+DEBUG | 2024-04-16 08:53:08,508 | num for this turn: 2
+DEBUG | 2024-04-16 08:53:11,314 | press on spot: 24
+DEBUG | 2024-04-16 08:53:11,325 | True
+DEBUG | 2024-04-16 08:53:11,326 | send: 20
+DEBUG | 2024-04-16 08:53:11,337 | received: 20
+DEBUG | 2024-04-16 08:53:11,337 | num for this turn: 6
+DEBUG | 2024-04-16 08:53:24,929 | press on spot: 12
+DEBUG | 2024-04-16 08:53:24,937 | True
+DEBUG | 2024-04-16 08:53:24,937 | send: 20
+DEBUG | 2024-04-16 08:53:24,947 | received: 20
+DEBUG | 2024-04-16 08:53:24,947 | num for this turn: 6
+DEBUG | 2024-04-16 08:53:35,704 | press on spot: 24
+DEBUG | 2024-04-16 08:53:35,713 | True
+DEBUG | 2024-04-16 08:53:35,713 | send: 20
+DEBUG | 2024-04-16 08:53:35,714 | received: 20
+DEBUG | 2024-04-16 08:53:35,714 | num for this turn: 6
+DEBUG | 2024-04-16 08:54:05,865 | send: 20
+DEBUG | 2024-04-16 08:54:05,867 | received: 20
+DEBUG | 2024-04-16 08:54:05,868 | num for this turn: 5
+DEBUG | 2024-04-16 08:54:36,043 | send: 20
+DEBUG | 2024-04-16 08:54:36,045 | received: 20
+DEBUG | 2024-04-16 08:54:36,045 | num for this turn: 1
+DEBUG | 2024-04-16 08:55:06,217 | send: 20
+DEBUG | 2024-04-16 08:55:06,221 | received: 20
+DEBUG | 2024-04-16 08:55:06,222 | num for this turn: 6
+DEBUG | 2024-04-16 08:55:36,354 | send: 20
+DEBUG | 2024-04-16 08:55:36,355 | received: 20
+DEBUG | 2024-04-16 08:55:36,355 | num for this turn: 1
+DEBUG | 2024-04-16 08:55:59,182 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:55:59,182 | close screen
+DEBUG | 2024-04-16 08:56:05,530 | color: 1
+DEBUG | 2024-04-16 08:56:05,532 | color: 2
+DEBUG | 2024-04-16 08:56:05,549 | received: 20
+DEBUG | 2024-04-16 08:56:05,550 | num for this turn: 4
+DEBUG | 2024-04-16 08:56:08,704 | press on spot: 24
+DEBUG | 2024-04-16 08:56:08,712 | True
+DEBUG | 2024-04-16 08:56:08,713 | send: 20
+DEBUG | 2024-04-16 08:56:08,714 | received: 20
+DEBUG | 2024-04-16 08:56:08,714 | num for this turn: 1
+DEBUG | 2024-04-16 08:56:11,561 | press on spot: 19
+DEBUG | 2024-04-16 08:56:11,570 | True
+DEBUG | 2024-04-16 08:56:11,570 | send: 20
+DEBUG | 2024-04-16 08:56:11,571 | received: 20
+DEBUG | 2024-04-16 08:56:11,572 | num for this turn: 6
+DEBUG | 2024-04-16 08:56:25,503 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:56:25,503 | close screen
+DEBUG | 2024-04-16 08:56:30,959 | color: 1
+DEBUG | 2024-04-16 08:56:30,963 | color: 2
+DEBUG | 2024-04-16 08:56:30,974 | received: 20
+DEBUG | 2024-04-16 08:56:30,974 | num for this turn: 4
+DEBUG | 2024-04-16 08:56:33,734 | press on spot: 24
+DEBUG | 2024-04-16 08:56:33,742 | True
+DEBUG | 2024-04-16 08:56:33,742 | send: 20
+DEBUG | 2024-04-16 08:56:33,743 | received: 20
+DEBUG | 2024-04-16 08:56:33,743 | num for this turn: 4
+DEBUG | 2024-04-16 08:56:37,770 | press on spot: 12
+DEBUG | 2024-04-16 08:56:37,778 | True
+DEBUG | 2024-04-16 08:56:37,778 | send: 20
+DEBUG | 2024-04-16 08:56:37,780 | received: 20
+DEBUG | 2024-04-16 08:56:37,780 | num for this turn: 2
+DEBUG | 2024-04-16 08:56:42,060 | press on spot: 6
+DEBUG | 2024-04-16 08:56:42,069 | True
+DEBUG | 2024-04-16 08:56:42,070 | send: 20
+DEBUG | 2024-04-16 08:56:42,072 | received: 20
+DEBUG | 2024-04-16 08:56:42,072 | num for this turn: 4
+DEBUG | 2024-04-16 08:56:47,131 | press on spot: 16
+DEBUG | 2024-04-16 08:56:47,139 | True
+DEBUG | 2024-04-16 08:56:47,139 | send: 20
+DEBUG | 2024-04-16 08:56:47,140 | received: 20
+DEBUG | 2024-04-16 08:56:47,140 | num for this turn: 1
+DEBUG | 2024-04-16 08:57:17,289 | send: 20
+DEBUG | 2024-04-16 08:57:17,292 | received: 20
+DEBUG | 2024-04-16 08:57:17,293 | num for this turn: 1
+DEBUG | 2024-04-16 08:57:47,503 | send: 20
+DEBUG | 2024-04-16 08:57:47,504 | received: 20
+DEBUG | 2024-04-16 08:57:47,504 | num for this turn: 2
+DEBUG | 2024-04-16 08:57:48,575 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:57:48,576 | close screen
+DEBUG | 2024-04-16 08:57:53,740 | color: 2
+DEBUG | 2024-04-16 08:57:53,746 | color: 1
+DEBUG | 2024-04-16 08:57:53,765 | received: 20
+DEBUG | 2024-04-16 08:57:53,766 | num for this turn: 5
+DEBUG | 2024-04-16 08:57:58,257 | press on spot: 8
+DEBUG | 2024-04-16 08:57:58,266 | True
+DEBUG | 2024-04-16 08:57:58,266 | send: 20
+DEBUG | 2024-04-16 08:57:58,267 | received: 20
+DEBUG | 2024-04-16 08:57:58,267 | num for this turn: 1
+DEBUG | 2024-04-16 08:58:00,810 | press on spot: 19
+DEBUG | 2024-04-16 08:58:00,820 | True
+DEBUG | 2024-04-16 08:58:00,821 | send: 20
+DEBUG | 2024-04-16 08:58:00,821 | received: 20
+DEBUG | 2024-04-16 08:58:00,821 | num for this turn: 6
+DEBUG | 2024-04-16 08:58:05,828 | press on spot: 13
+DEBUG | 2024-04-16 08:58:05,837 | True
+DEBUG | 2024-04-16 08:58:05,838 | send: 20
+DEBUG | 2024-04-16 08:58:05,847 | received: 20
+DEBUG | 2024-04-16 08:58:05,848 | num for this turn: 3
+DEBUG | 2024-04-16 08:58:11,221 | press on spot: 19
+DEBUG | 2024-04-16 08:58:11,230 | True
+DEBUG | 2024-04-16 08:58:11,230 | send: 20
+DEBUG | 2024-04-16 08:58:11,234 | received: 20
+DEBUG | 2024-04-16 08:58:11,234 | num for this turn: 1
+DEBUG | 2024-04-16 08:58:16,292 | press on spot: 6
+DEBUG | 2024-04-16 08:58:16,300 | True
+DEBUG | 2024-04-16 08:58:16,300 | send: 20
+DEBUG | 2024-04-16 08:58:16,301 | received: 20
+DEBUG | 2024-04-16 08:58:16,301 | num for this turn: 2
+DEBUG | 2024-04-16 08:58:20,893 | press on spot: 1
+DEBUG | 2024-04-16 08:58:20,905 | True
+DEBUG | 2024-04-16 08:58:20,906 | send: 20
+DEBUG | 2024-04-16 08:58:20,907 | received: 20
+DEBUG | 2024-04-16 08:58:20,907 | num for this turn: 4
+DEBUG | 2024-04-16 08:58:29,470 | press on spot: 13
+DEBUG | 2024-04-16 08:58:29,470 | False
+DEBUG | 2024-04-16 08:58:30,668 | press on spot: 8
+DEBUG | 2024-04-16 08:58:30,668 | False
+DEBUG | 2024-04-16 08:58:31,537 | press on spot: 8
+DEBUG | 2024-04-16 08:58:31,537 | False
+DEBUG | 2024-04-16 08:58:32,411 | press on spot: 7
+DEBUG | 2024-04-16 08:58:32,411 | False
+DEBUG | 2024-04-16 08:58:33,825 | press on spot: 8
+DEBUG | 2024-04-16 08:58:33,825 | False
+DEBUG | 2024-04-16 08:58:36,880 | press on spot: 100
+DEBUG | 2024-04-16 08:58:36,880 | False
+DEBUG | 2024-04-16 08:58:37,969 | press on spot: 0
+DEBUG | 2024-04-16 08:58:37,969 | False
+DEBUG | 2024-04-16 08:58:51,070 | send: 20
+DEBUG | 2024-04-16 08:58:51,072 | received: 20
+DEBUG | 2024-04-16 08:58:51,072 | num for this turn: 1
+DEBUG | 2024-04-16 08:59:21,237 | send: 20
+DEBUG | 2024-04-16 08:59:21,238 | received: 20
+DEBUG | 2024-04-16 08:59:21,239 | num for this turn: 3
+DEBUG | 2024-04-16 08:59:30,572 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 08:59:30,573 | close screen
+DEBUG | 2024-04-16 08:59:35,943 | color: 1
+DEBUG | 2024-04-16 08:59:35,946 | color: 2
+DEBUG | 2024-04-16 08:59:35,957 | received: 20
+DEBUG | 2024-04-16 08:59:35,959 | num for this turn: 1
+DEBUG | 2024-04-16 08:59:38,365 | press on spot: 24
+DEBUG | 2024-04-16 08:59:38,374 | True
+DEBUG | 2024-04-16 08:59:38,374 | send: 20
+DEBUG | 2024-04-16 08:59:38,375 | received: 20
+DEBUG | 2024-04-16 08:59:38,375 | num for this turn: 5
+DEBUG | 2024-04-16 08:59:50,572 | press on spot: 19
+DEBUG | 2024-04-16 08:59:50,582 | True
+DEBUG | 2024-04-16 08:59:50,582 | send: 20
+DEBUG | 2024-04-16 08:59:50,583 | received: 20
+DEBUG | 2024-04-16 08:59:50,583 | num for this turn: 5
+DEBUG | 2024-04-16 08:59:57,451 | press on spot: 6
+DEBUG | 2024-04-16 08:59:57,451 | False
+DEBUG | 2024-04-16 08:59:57,561 | press on spot: 6
+DEBUG | 2024-04-16 08:59:57,561 | False
+DEBUG | 2024-04-16 08:59:58,868 | press on spot: 100
+DEBUG | 2024-04-16 08:59:58,868 | False
+DEBUG | 2024-04-16 08:59:58,977 | press on spot: 100
+DEBUG | 2024-04-16 08:59:58,978 | False
+DEBUG | 2024-04-16 09:00:20,799 | send: 20
+DEBUG | 2024-04-16 09:00:20,799 | received: 20
+DEBUG | 2024-04-16 09:00:20,800 | num for this turn: 4
+DEBUG | 2024-04-16 09:00:50,983 | send: 20
+DEBUG | 2024-04-16 09:00:50,994 | received: 20
+DEBUG | 2024-04-16 09:00:50,994 | num for this turn: 6
+DEBUG | 2024-04-16 09:01:21,120 | send: 20
+DEBUG | 2024-04-16 09:01:21,121 | received: 20
+DEBUG | 2024-04-16 09:01:21,121 | num for this turn: 4
+DEBUG | 2024-04-16 09:01:51,324 | send: 20
+DEBUG | 2024-04-16 09:01:51,324 | received: 20
+DEBUG | 2024-04-16 09:01:51,324 | num for this turn: 5
+DEBUG | 2024-04-16 09:01:59,338 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:01:59,339 | close screen
+DEBUG | 2024-04-16 09:02:05,007 | color: 1
+DEBUG | 2024-04-16 09:02:05,014 | color: 2
+DEBUG | 2024-04-16 09:02:05,072 | received: 20
+DEBUG | 2024-04-16 09:02:05,073 | num for this turn: 6
+DEBUG | 2024-04-16 09:02:10,064 | press on spot: 13
+DEBUG | 2024-04-16 09:02:10,074 | True
+DEBUG | 2024-04-16 09:02:10,074 | send: 20
+DEBUG | 2024-04-16 09:02:10,075 | received: 20
+DEBUG | 2024-04-16 09:02:10,075 | num for this turn: 3
+DEBUG | 2024-04-16 09:02:13,268 | press on spot: 19
+DEBUG | 2024-04-16 09:02:13,277 | True
+DEBUG | 2024-04-16 09:02:13,277 | send: 20
+DEBUG | 2024-04-16 09:02:13,281 | received: 20
+DEBUG | 2024-04-16 09:02:13,282 | num for this turn: 5
+DEBUG | 2024-04-16 09:02:18,109 | press on spot: 8
+DEBUG | 2024-04-16 09:02:18,122 | True
+DEBUG | 2024-04-16 09:02:18,123 | send: 20
+DEBUG | 2024-04-16 09:02:18,128 | received: 20
+DEBUG | 2024-04-16 09:02:18,128 | num for this turn: 6
+DEBUG | 2024-04-16 09:02:25,713 | press on spot: 1
+DEBUG | 2024-04-16 09:02:25,722 | True
+DEBUG | 2024-04-16 09:02:25,723 | send: 20
+DEBUG | 2024-04-16 09:02:25,723 | received: 20
+DEBUG | 2024-04-16 09:02:25,724 | num for this turn: 2
+DEBUG | 2024-04-16 09:02:34,756 | press on spot: 100
+DEBUG | 2024-04-16 09:02:34,756 | False
+DEBUG | 2024-04-16 09:02:39,021 | press on spot: 100
+DEBUG | 2024-04-16 09:02:39,022 | False
+DEBUG | 2024-04-16 09:02:40,008 | press on spot: 100
+DEBUG | 2024-04-16 09:02:40,008 | False
+DEBUG | 2024-04-16 09:02:40,664 | press on spot: 100
+DEBUG | 2024-04-16 09:02:40,664 | False
+DEBUG | 2024-04-16 09:02:55,901 | send: 20
+DEBUG | 2024-04-16 09:02:55,910 | received: 20
+DEBUG | 2024-04-16 09:02:55,911 | num for this turn: 6
+DEBUG | 2024-04-16 09:03:26,121 | send: 20
+DEBUG | 2024-04-16 09:03:26,131 | received: 20
+DEBUG | 2024-04-16 09:03:26,131 | num for this turn: 3
+DEBUG | 2024-04-16 09:03:56,341 | send: 20
+DEBUG | 2024-04-16 09:03:56,344 | received: 20
+DEBUG | 2024-04-16 09:03:56,344 | num for this turn: 6
+DEBUG | 2024-04-16 09:04:26,491 | send: 20
+DEBUG | 2024-04-16 09:04:26,505 | received: 20
+DEBUG | 2024-04-16 09:04:26,506 | num for this turn: 6
+DEBUG | 2024-04-16 09:04:56,687 | send: 20
+DEBUG | 2024-04-16 09:04:56,687 | received: 20
+DEBUG | 2024-04-16 09:04:56,688 | num for this turn: 5
+DEBUG | 2024-04-16 09:05:26,813 | send: 20
+DEBUG | 2024-04-16 09:05:26,814 | received: 20
+DEBUG | 2024-04-16 09:05:26,814 | num for this turn: 1
+DEBUG | 2024-04-16 09:05:57,010 | send: 20
+DEBUG | 2024-04-16 09:05:57,022 | received: 20
+DEBUG | 2024-04-16 09:05:57,022 | num for this turn: 5
+DEBUG | 2024-04-16 09:06:27,146 | send: 20
+DEBUG | 2024-04-16 09:06:27,146 | received: 20
+DEBUG | 2024-04-16 09:06:27,147 | num for this turn: 6
+DEBUG | 2024-04-16 09:06:35,924 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:06:35,926 | close screen
+DEBUG | 2024-04-16 09:06:41,922 | color: 1
+DEBUG | 2024-04-16 09:06:41,935 | color: 2
+DEBUG | 2024-04-16 09:06:41,935 | received: 20
+DEBUG | 2024-04-16 09:06:41,935 | num for this turn: 4
+DEBUG | 2024-04-16 09:06:43,902 | press on spot: 24
+DEBUG | 2024-04-16 09:06:43,910 | True
+DEBUG | 2024-04-16 09:06:43,910 | send: 20
+DEBUG | 2024-04-16 09:06:43,913 | received: 20
+DEBUG | 2024-04-16 09:06:43,913 | num for this turn: 5
+DEBUG | 2024-04-16 09:06:49,850 | press on spot: 19
+DEBUG | 2024-04-16 09:06:49,861 | True
+DEBUG | 2024-04-16 09:06:49,861 | send: 20
+DEBUG | 2024-04-16 09:06:49,862 | received: 20
+DEBUG | 2024-04-16 09:06:49,862 | num for this turn: 1
+DEBUG | 2024-04-16 09:06:55,330 | press on spot: 100
+DEBUG | 2024-04-16 09:06:55,330 | True
+DEBUG | 2024-04-16 09:06:55,331 | send: 20
+DEBUG | 2024-04-16 09:06:55,338 | received: 20
+DEBUG | 2024-04-16 09:06:55,339 | num for this turn: 2
+DEBUG | 2024-04-16 09:07:02,519 | press on spot: -100
+DEBUG | 2024-04-16 09:07:02,520 | True
+DEBUG | 2024-04-16 09:07:02,520 | send: 20
+DEBUG | 2024-04-16 09:07:02,528 | received: 20
+DEBUG | 2024-04-16 09:07:02,528 | num for this turn: 1
+DEBUG | 2024-04-16 09:07:12,430 | press on spot: 6
+DEBUG | 2024-04-16 09:07:12,440 | True
+DEBUG | 2024-04-16 09:07:12,440 | send: 20
+DEBUG | 2024-04-16 09:07:12,441 | received: 20
+DEBUG | 2024-04-16 09:07:12,441 | num for this turn: 6
+DEBUG | 2024-04-16 09:07:16,936 | press on spot: 17
+DEBUG | 2024-04-16 09:07:16,945 | True
+DEBUG | 2024-04-16 09:07:16,945 | send: 20
+DEBUG | 2024-04-16 09:07:16,948 | received: 20
+DEBUG | 2024-04-16 09:07:16,948 | num for this turn: 4
+DEBUG | 2024-04-16 09:07:22,978 | press on spot: 5
+DEBUG | 2024-04-16 09:07:22,987 | False
+DEBUG | 2024-04-16 09:07:28,789 | press on spot: 13
+DEBUG | 2024-04-16 09:07:28,798 | True
+DEBUG | 2024-04-16 09:07:28,798 | send: 20
+DEBUG | 2024-04-16 09:07:28,799 | received: 20
+DEBUG | 2024-04-16 09:07:28,799 | num for this turn: 1
+DEBUG | 2024-04-16 09:07:33,532 | press on spot: 23
+DEBUG | 2024-04-16 09:07:33,546 | True
+DEBUG | 2024-04-16 09:07:33,546 | send: 20
+DEBUG | 2024-04-16 09:07:33,547 | received: 20
+DEBUG | 2024-04-16 09:07:33,547 | num for this turn: 1
+DEBUG | 2024-04-16 09:08:03,748 | send: 20
+DEBUG | 2024-04-16 09:08:03,749 | received: 20
+DEBUG | 2024-04-16 09:08:03,749 | num for this turn: 1
+DEBUG | 2024-04-16 09:08:33,911 | send: 20
+DEBUG | 2024-04-16 09:08:33,912 | received: 20
+DEBUG | 2024-04-16 09:08:33,912 | num for this turn: 4
+DEBUG | 2024-04-16 09:09:04,028 | send: 20
+DEBUG | 2024-04-16 09:09:04,037 | received: 20
+DEBUG | 2024-04-16 09:09:04,037 | num for this turn: 3
+DEBUG | 2024-04-16 09:09:21,501 | press on spot: 100
+DEBUG | 2024-04-16 09:09:21,501 | False
+DEBUG | 2024-04-16 09:09:30,687 | press on spot: 2
+DEBUG | 2024-04-16 09:09:30,696 | True
+DEBUG | 2024-04-16 09:09:30,696 | send: 20
+DEBUG | 2024-04-16 09:09:30,697 | received: 20
+DEBUG | 2024-04-16 09:09:30,697 | num for this turn: 5
+DEBUG | 2024-04-16 09:10:00,837 | send: 20
+DEBUG | 2024-04-16 09:10:00,843 | received: 20
+DEBUG | 2024-04-16 09:10:00,843 | num for this turn: 5
+DEBUG | 2024-04-16 09:10:31,060 | send: 20
+DEBUG | 2024-04-16 09:10:31,063 | received: 20
+DEBUG | 2024-04-16 09:10:31,063 | num for this turn: 2
+DEBUG | 2024-04-16 09:11:01,254 | send: 20
+DEBUG | 2024-04-16 09:11:01,255 | received: 20
+DEBUG | 2024-04-16 09:11:01,255 | num for this turn: 1
+DEBUG | 2024-04-16 09:11:31,433 | send: 20
+DEBUG | 2024-04-16 09:11:31,437 | received: 20
+DEBUG | 2024-04-16 09:11:31,437 | num for this turn: 1
+DEBUG | 2024-04-16 09:12:01,640 | send: 20
+DEBUG | 2024-04-16 09:12:01,645 | received: 20
+DEBUG | 2024-04-16 09:12:01,645 | num for this turn: 1
+DEBUG | 2024-04-16 09:12:22,955 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:12:22,955 | close screen
+DEBUG | 2024-04-16 09:12:31,879 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:12:31,880 | close screen
+DEBUG | 2024-04-16 09:13:32,358 | color: -1
+DEBUG | 2024-04-16 09:13:32,358 | close screen
+DEBUG | 2024-04-16 09:13:37,375 | color: 1
+DEBUG | 2024-04-16 09:13:37,380 | color: 2
+DEBUG | 2024-04-16 09:13:37,391 | received: 20
+DEBUG | 2024-04-16 09:13:37,392 | num for this turn: 6
+DEBUG | 2024-04-16 09:13:47,479 | press on spot: 24
+DEBUG | 2024-04-16 09:13:47,487 | True
+DEBUG | 2024-04-16 09:13:47,487 | send: 20
+DEBUG | 2024-04-16 09:13:47,499 | received: 20
+DEBUG | 2024-04-16 09:13:47,499 | num for this turn: 6
+DEBUG | 2024-04-16 09:14:02,030 | press on spot: 12
+DEBUG | 2024-04-16 09:14:02,039 | True
+DEBUG | 2024-04-16 09:14:02,039 | send: 20
+DEBUG | 2024-04-16 09:14:02,043 | received: 20
+DEBUG | 2024-04-16 09:14:02,043 | num for this turn: 3
+DEBUG | 2024-04-16 09:14:15,817 | press on spot: 100
+DEBUG | 2024-04-16 09:14:15,818 | True
+DEBUG | 2024-04-16 09:14:15,818 | send: 20
+DEBUG | 2024-04-16 09:14:15,819 | received: 20
+DEBUG | 2024-04-16 09:14:15,819 | num for this turn: 5
+DEBUG | 2024-04-16 09:14:24,198 | press on spot: 19
+DEBUG | 2024-04-16 09:14:24,210 | True
+DEBUG | 2024-04-16 09:14:24,211 | send: 20
+DEBUG | 2024-04-16 09:14:24,214 | received: 20
+DEBUG | 2024-04-16 09:14:24,214 | num for this turn: 2
+DEBUG | 2024-04-16 09:14:54,425 | send: 20
+DEBUG | 2024-04-16 09:14:54,430 | received: 20
+DEBUG | 2024-04-16 09:14:54,431 | num for this turn: 6
+DEBUG | 2024-04-16 09:15:24,645 | send: 20
+DEBUG | 2024-04-16 09:15:24,646 | received: 20
+DEBUG | 2024-04-16 09:15:24,647 | num for this turn: 1
+DEBUG | 2024-04-16 09:15:51,557 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:15:51,558 | close screen
+DEBUG | 2024-04-16 09:15:57,356 | color: 1
+DEBUG | 2024-04-16 09:15:57,361 | color: 2
+DEBUG | 2024-04-16 09:15:57,375 | received: 20
+DEBUG | 2024-04-16 09:15:57,375 | num for this turn: 2
+DEBUG | 2024-04-16 09:16:05,513 | press on spot: 24
+DEBUG | 2024-04-16 09:16:05,522 | True
+DEBUG | 2024-04-16 09:16:05,523 | send: 20
+DEBUG | 2024-04-16 09:16:05,532 | received: 20
+DEBUG | 2024-04-16 09:16:05,532 | num for this turn: 6
+DEBUG | 2024-04-16 09:16:10,139 | press on spot: 1
+DEBUG | 2024-04-16 09:16:10,148 | True
+DEBUG | 2024-04-16 09:16:10,148 | send: 20
+DEBUG | 2024-04-16 09:16:10,150 | received: 20
+DEBUG | 2024-04-16 09:16:10,151 | num for this turn: 6
+DEBUG | 2024-04-16 09:16:15,546 | press on spot: 8
+DEBUG | 2024-04-16 09:16:15,554 | True
+DEBUG | 2024-04-16 09:16:15,554 | send: 20
+DEBUG | 2024-04-16 09:16:15,555 | received: 20
+DEBUG | 2024-04-16 09:16:15,555 | num for this turn: 2
+DEBUG | 2024-04-16 09:16:21,808 | press on spot: 19
+DEBUG | 2024-04-16 09:16:21,816 | True
+DEBUG | 2024-04-16 09:16:21,816 | send: 20
+DEBUG | 2024-04-16 09:16:21,823 | received: 20
+DEBUG | 2024-04-16 09:16:21,824 | num for this turn: 1
+DEBUG | 2024-04-16 09:16:24,776 | press on spot: 22
+DEBUG | 2024-04-16 09:16:24,784 | True
+DEBUG | 2024-04-16 09:16:24,784 | send: 20
+DEBUG | 2024-04-16 09:16:24,785 | received: 20
+DEBUG | 2024-04-16 09:16:24,785 | num for this turn: 4
+DEBUG | 2024-04-16 09:16:28,195 | press on spot: 0
+DEBUG | 2024-04-16 09:16:28,195 | False
+DEBUG | 2024-04-16 09:16:28,856 | press on spot: 0
+DEBUG | 2024-04-16 09:16:28,857 | False
+DEBUG | 2024-04-16 09:16:29,404 | press on spot: 19
+DEBUG | 2024-04-16 09:16:29,404 | False
+DEBUG | 2024-04-16 09:16:29,951 | press on spot: 0
+DEBUG | 2024-04-16 09:16:29,951 | False
+DEBUG | 2024-04-16 09:16:30,385 | press on spot: 16
+DEBUG | 2024-04-16 09:16:30,385 | False
+DEBUG | 2024-04-16 09:16:30,930 | press on spot: 14
+DEBUG | 2024-04-16 09:16:30,931 | False
+DEBUG | 2024-04-16 09:16:31,260 | press on spot: 12
+DEBUG | 2024-04-16 09:16:31,260 | False
+DEBUG | 2024-04-16 09:16:32,688 | press on spot: -100
+DEBUG | 2024-04-16 09:16:32,688 | True
+DEBUG | 2024-04-16 09:16:32,688 | send: 20
+DEBUG | 2024-04-16 09:16:32,697 | received: 20
+DEBUG | 2024-04-16 09:16:32,697 | num for this turn: 3
+DEBUG | 2024-04-16 09:16:37,862 | press on spot: 24
+DEBUG | 2024-04-16 09:16:37,871 | True
+DEBUG | 2024-04-16 09:16:37,871 | send: 20
+DEBUG | 2024-04-16 09:16:37,872 | received: 20
+DEBUG | 2024-04-16 09:16:37,872 | num for this turn: 1
+DEBUG | 2024-04-16 09:16:47,783 | press on spot: 1
+DEBUG | 2024-04-16 09:16:47,797 | An error occurred: cannot access local variable 'col' where it is not associated with a value
+DEBUG | 2024-04-16 09:16:47,797 | close screen
+DEBUG | 2024-04-16 09:21:36,355 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:21:36,355 | close screen
+DEBUG | 2024-04-16 09:21:42,287 | color: 1
+DEBUG | 2024-04-16 09:21:42,294 | color: 2
+DEBUG | 2024-04-16 09:21:42,303 | received: 20
+DEBUG | 2024-04-16 09:21:42,304 | num for this turn: 3
+DEBUG | 2024-04-16 09:21:45,807 | press on spot: 24
+DEBUG | 2024-04-16 09:21:45,816 | True
+DEBUG | 2024-04-16 09:21:45,816 | send: 20
+DEBUG | 2024-04-16 09:21:45,817 | received: 20
+DEBUG | 2024-04-16 09:21:45,817 | num for this turn: 1
+DEBUG | 2024-04-16 09:21:49,598 | press on spot: 19
+DEBUG | 2024-04-16 09:21:49,608 | True
+DEBUG | 2024-04-16 09:21:49,608 | send: 20
+DEBUG | 2024-04-16 09:21:49,610 | received: 20
+DEBUG | 2024-04-16 09:21:49,610 | num for this turn: 4
+DEBUG | 2024-04-16 09:21:55,192 | press on spot: 24
+DEBUG | 2024-04-16 09:21:55,201 | True
+DEBUG | 2024-04-16 09:21:55,201 | send: 20
+DEBUG | 2024-04-16 09:21:55,211 | received: 20
+DEBUG | 2024-04-16 09:21:55,211 | num for this turn: 2
+DEBUG | 2024-04-16 09:21:58,545 | press on spot: -100
+DEBUG | 2024-04-16 09:21:58,545 | True
+DEBUG | 2024-04-16 09:21:58,545 | send: 20
+DEBUG | 2024-04-16 09:21:58,550 | received: 20
+DEBUG | 2024-04-16 09:21:58,550 | num for this turn: 6
+DEBUG | 2024-04-16 09:22:01,414 | press on spot: 6
+DEBUG | 2024-04-16 09:22:01,424 | False
+DEBUG | 2024-04-16 09:22:03,060 | press on spot: 20
+DEBUG | 2024-04-16 09:22:03,069 | True
+DEBUG | 2024-04-16 09:22:03,069 | send: 20
+DEBUG | 2024-04-16 09:22:03,069 | received: 20
+DEBUG | 2024-04-16 09:22:03,069 | num for this turn: 6
+DEBUG | 2024-04-16 09:22:09,433 | press on spot: 1
+DEBUG | 2024-04-16 09:22:09,443 | True
+DEBUG | 2024-04-16 09:22:09,443 | send: 20
+DEBUG | 2024-04-16 09:22:09,452 | received: 20
+DEBUG | 2024-04-16 09:22:09,452 | num for this turn: 1
+DEBUG | 2024-04-16 09:22:17,676 | press on spot: 8
+DEBUG | 2024-04-16 09:22:17,684 | True
+DEBUG | 2024-04-16 09:22:17,684 | send: 20
+DEBUG | 2024-04-16 09:22:17,685 | received: 20
+DEBUG | 2024-04-16 09:22:17,685 | num for this turn: 3
+DEBUG | 2024-04-16 09:22:22,603 | press on spot: 19
+DEBUG | 2024-04-16 09:22:22,604 | False
+DEBUG | 2024-04-16 09:22:24,601 | press on spot: -100
+DEBUG | 2024-04-16 09:22:24,601 | True
+DEBUG | 2024-04-16 09:22:24,601 | send: 20
+DEBUG | 2024-04-16 09:22:24,602 | received: 20
+DEBUG | 2024-04-16 09:22:24,602 | num for this turn: 5
+DEBUG | 2024-04-16 09:22:27,243 | press on spot: 6
+DEBUG | 2024-04-16 09:22:27,251 | True
+DEBUG | 2024-04-16 09:22:27,251 | send: 20
+DEBUG | 2024-04-16 09:22:27,255 | received: 20
+DEBUG | 2024-04-16 09:22:27,255 | num for this turn: 4
+DEBUG | 2024-04-16 09:22:30,264 | press on spot: -100
+DEBUG | 2024-04-16 09:22:30,265 | True
+DEBUG | 2024-04-16 09:22:30,265 | send: 20
+DEBUG | 2024-04-16 09:22:30,271 | received: 20
+DEBUG | 2024-04-16 09:22:30,271 | num for this turn: 1
+DEBUG | 2024-04-16 09:22:33,695 | press on spot: 7
+DEBUG | 2024-04-16 09:22:33,704 | True
+DEBUG | 2024-04-16 09:22:33,704 | send: 20
+DEBUG | 2024-04-16 09:22:33,705 | received: 20
+DEBUG | 2024-04-16 09:22:33,705 | num for this turn: 3
+DEBUG | 2024-04-16 09:22:38,358 | press on spot: 12
+DEBUG | 2024-04-16 09:22:38,368 | True
+DEBUG | 2024-04-16 09:22:38,368 | send: 20
+DEBUG | 2024-04-16 09:22:38,371 | received: 20
+DEBUG | 2024-04-16 09:22:38,371 | num for this turn: 4
+DEBUG | 2024-04-16 09:22:42,643 | press on spot: 6
+DEBUG | 2024-04-16 09:22:42,653 | True
+DEBUG | 2024-04-16 09:22:42,653 | send: 20
+DEBUG | 2024-04-16 09:22:42,654 | received: 20
+DEBUG | 2024-04-16 09:22:42,655 | num for this turn: 4
+DEBUG | 2024-04-16 09:22:45,460 | press on spot: -100
+DEBUG | 2024-04-16 09:22:45,460 | True
+DEBUG | 2024-04-16 09:22:45,460 | send: 20
+DEBUG | 2024-04-16 09:22:45,465 | received: 20
+DEBUG | 2024-04-16 09:22:45,465 | num for this turn: 5
+DEBUG | 2024-04-16 09:22:53,229 | press on spot: 8
+DEBUG | 2024-04-16 09:22:53,238 | True
+DEBUG | 2024-04-16 09:22:53,238 | send: 20
+DEBUG | 2024-04-16 09:22:53,239 | received: 20
+DEBUG | 2024-04-16 09:22:53,239 | num for this turn: 3
+DEBUG | 2024-04-16 09:22:56,033 | press on spot: -100
+DEBUG | 2024-04-16 09:22:56,033 | True
+DEBUG | 2024-04-16 09:22:56,033 | send: 20
+DEBUG | 2024-04-16 09:22:56,034 | received: 20
+DEBUG | 2024-04-16 09:22:56,034 | num for this turn: 3
+DEBUG | 2024-04-16 09:22:58,685 | press on spot: 6
+DEBUG | 2024-04-16 09:22:58,685 | False
+DEBUG | 2024-04-16 09:23:00,006 | press on spot: 100
+DEBUG | 2024-04-16 09:23:00,006 | True
+DEBUG | 2024-04-16 09:23:00,006 | send: 20
+DEBUG | 2024-04-16 09:23:00,006 | received: 20
+DEBUG | 2024-04-16 09:23:00,006 | num for this turn: 1
+DEBUG | 2024-04-16 09:23:10,897 | press on spot: 15
+DEBUG | 2024-04-16 09:23:10,908 | True
+DEBUG | 2024-04-16 09:23:10,908 | send: 20
+DEBUG | 2024-04-16 09:23:10,913 | received: 20
+DEBUG | 2024-04-16 09:23:10,913 | num for this turn: 2
+DEBUG | 2024-04-16 09:23:20,269 | press on spot: 22
+DEBUG | 2024-04-16 09:23:20,277 | True
+DEBUG | 2024-04-16 09:23:20,277 | send: 20
+DEBUG | 2024-04-16 09:23:20,279 | received: 20
+DEBUG | 2024-04-16 09:23:20,279 | num for this turn: 6
+DEBUG | 2024-04-16 09:23:27,040 | press on spot: 3
+DEBUG | 2024-04-16 09:23:27,050 | True
+DEBUG | 2024-04-16 09:23:27,050 | send: 20
+DEBUG | 2024-04-16 09:23:27,051 | received: 20
+DEBUG | 2024-04-16 09:23:27,051 | num for this turn: 2
+DEBUG | 2024-04-16 09:23:31,763 | press on spot: 8
+DEBUG | 2024-04-16 09:23:31,772 | True
+DEBUG | 2024-04-16 09:23:31,773 | send: 20
+DEBUG | 2024-04-16 09:23:31,773 | received: 20
+DEBUG | 2024-04-16 09:23:31,773 | num for this turn: 3
+DEBUG | 2024-04-16 09:23:37,541 | press on spot: 9
+DEBUG | 2024-04-16 09:23:37,552 | True
+DEBUG | 2024-04-16 09:23:37,552 | send: 20
+DEBUG | 2024-04-16 09:23:37,555 | received: 20
+DEBUG | 2024-04-16 09:23:37,555 | num for this turn: 6
+DEBUG | 2024-04-16 09:23:45,309 | press on spot: 6
+DEBUG | 2024-04-16 09:23:45,317 | False
+DEBUG | 2024-04-16 09:23:48,383 | press on spot: 20
+DEBUG | 2024-04-16 09:23:48,392 | True
+DEBUG | 2024-04-16 09:23:48,392 | send: 20
+DEBUG | 2024-04-16 09:23:48,398 | received: 20
+DEBUG | 2024-04-16 09:23:48,398 | num for this turn: 2
+DEBUG | 2024-04-16 09:23:54,290 | press on spot: 19
+DEBUG | 2024-04-16 09:23:54,302 | True
+DEBUG | 2024-04-16 09:23:54,303 | send: 20
+DEBUG | 2024-04-16 09:23:54,305 | received: 20
+DEBUG | 2024-04-16 09:23:54,305 | num for this turn: 6
+DEBUG | 2024-04-16 09:23:57,821 | press on spot: 100
+DEBUG | 2024-04-16 09:23:57,821 | False
+DEBUG | 2024-04-16 09:23:58,587 | press on spot: 100
+DEBUG | 2024-04-16 09:23:58,587 | False
+DEBUG | 2024-04-16 09:23:59,247 | press on spot: 100
+DEBUG | 2024-04-16 09:23:59,247 | False
+DEBUG | 2024-04-16 09:23:59,900 | press on spot: 100
+DEBUG | 2024-04-16 09:23:59,900 | False
+DEBUG | 2024-04-16 09:24:00,883 | press on spot: 100
+DEBUG | 2024-04-16 09:24:00,883 | False
+DEBUG | 2024-04-16 09:24:02,419 | press on spot: 6
+DEBUG | 2024-04-16 09:24:02,419 | False
+DEBUG | 2024-04-16 09:24:03,183 | press on spot: 4
+DEBUG | 2024-04-16 09:24:03,183 | False
+DEBUG | 2024-04-16 09:24:03,841 | press on spot: 2
+DEBUG | 2024-04-16 09:24:03,841 | False
+DEBUG | 2024-04-16 09:24:04,499 | press on spot: 1
+DEBUG | 2024-04-16 09:24:04,499 | False
+DEBUG | 2024-04-16 09:24:05,705 | press on spot: 6
+DEBUG | 2024-04-16 09:24:05,705 | False
+DEBUG | 2024-04-16 09:24:06,142 | press on spot: 6
+DEBUG | 2024-04-16 09:24:06,142 | False
+DEBUG | 2024-04-16 09:24:06,687 | press on spot: 6
+DEBUG | 2024-04-16 09:24:06,687 | False
+DEBUG | 2024-04-16 09:24:07,570 | press on spot: 100
+DEBUG | 2024-04-16 09:24:07,570 | False
+DEBUG | 2024-04-16 09:24:08,334 | press on spot: 100
+DEBUG | 2024-04-16 09:24:08,334 | False
+DEBUG | 2024-04-16 09:24:09,751 | press on spot: 14
+DEBUG | 2024-04-16 09:24:09,751 | False
+DEBUG | 2024-04-16 09:24:10,949 | press on spot: 0
+DEBUG | 2024-04-16 09:24:10,949 | False
+DEBUG | 2024-04-16 09:24:12,041 | press on spot: 16
+DEBUG | 2024-04-16 09:24:12,041 | False
+DEBUG | 2024-04-16 09:24:13,024 | press on spot: 0
+DEBUG | 2024-04-16 09:24:13,024 | False
+DEBUG | 2024-04-16 09:24:13,567 | press on spot: 0
+DEBUG | 2024-04-16 09:24:13,567 | False
+DEBUG | 2024-04-16 09:24:14,002 | press on spot: 5
+DEBUG | 2024-04-16 09:24:14,002 | False
+DEBUG | 2024-04-16 09:24:14,653 | press on spot: 5
+DEBUG | 2024-04-16 09:24:14,654 | False
+DEBUG | 2024-04-16 09:24:15,201 | press on spot: 6
+DEBUG | 2024-04-16 09:24:15,202 | False
+DEBUG | 2024-04-16 09:24:15,202 | press on spot: 6
+DEBUG | 2024-04-16 09:24:15,202 | False
+DEBUG | 2024-04-16 09:24:15,638 | press on spot: 6
+DEBUG | 2024-04-16 09:24:15,638 | False
+DEBUG | 2024-04-16 09:24:16,836 | press on spot: 12
+DEBUG | 2024-04-16 09:24:16,836 | False
+DEBUG | 2024-04-16 09:24:18,265 | press on spot: 100
+DEBUG | 2024-04-16 09:24:18,265 | False
+DEBUG | 2024-04-16 09:24:18,811 | press on spot: 100
+DEBUG | 2024-04-16 09:24:18,811 | False
+DEBUG | 2024-04-16 09:24:19,574 | press on spot: 100
+DEBUG | 2024-04-16 09:24:19,574 | False
+DEBUG | 2024-04-16 09:24:20,678 | press on spot: 0
+DEBUG | 2024-04-16 09:24:20,678 | False
+DEBUG | 2024-04-16 09:24:24,502 | send: 20
+DEBUG | 2024-04-16 09:24:24,508 | received: 20
+DEBUG | 2024-04-16 09:24:24,508 | num for this turn: 4
+DEBUG | 2024-04-16 09:24:32,384 | press on spot: 19
+DEBUG | 2024-04-16 09:24:32,393 | True
+DEBUG | 2024-04-16 09:24:32,394 | send: 20
+DEBUG | 2024-04-16 09:24:32,394 | received: 20
+DEBUG | 2024-04-16 09:24:32,394 | num for this turn: 2
+DEBUG | 2024-04-16 09:25:00,533 | press on spot: 100
+DEBUG | 2024-04-16 09:25:00,533 | True
+DEBUG | 2024-04-16 09:25:00,533 | send: 20
+DEBUG | 2024-04-16 09:25:00,534 | received: 20
+DEBUG | 2024-04-16 09:25:00,534 | num for this turn: 1
+DEBUG | 2024-04-16 09:25:30,670 | send: 20
+DEBUG | 2024-04-16 09:25:30,672 | received: 20
+DEBUG | 2024-04-16 09:25:30,672 | num for this turn: 4
+DEBUG | 2024-04-16 09:26:00,880 | send: 20
+DEBUG | 2024-04-16 09:26:00,889 | received: 20
+DEBUG | 2024-04-16 09:26:00,889 | num for this turn: 4
+DEBUG | 2024-04-16 09:26:31,076 | send: 20
+DEBUG | 2024-04-16 09:26:31,079 | received: 20
+DEBUG | 2024-04-16 09:26:31,080 | num for this turn: 5
+DEBUG | 2024-04-16 09:27:01,292 | send: 20
+DEBUG | 2024-04-16 09:27:01,299 | received: 20
+DEBUG | 2024-04-16 09:27:01,299 | num for this turn: 4
+DEBUG | 2024-04-16 09:27:31,423 | send: 20
+DEBUG | 2024-04-16 09:27:31,424 | received: 20
+DEBUG | 2024-04-16 09:27:31,424 | num for this turn: 4
+DEBUG | 2024-04-16 09:28:01,559 | send: 20
+DEBUG | 2024-04-16 09:28:01,560 | received: 20
+DEBUG | 2024-04-16 09:28:01,560 | num for this turn: 3
+DEBUG | 2024-04-16 09:28:31,757 | send: 20
+DEBUG | 2024-04-16 09:28:31,758 | received: 20
+DEBUG | 2024-04-16 09:28:31,758 | num for this turn: 2
+DEBUG | 2024-04-16 09:29:01,907 | send: 20
+DEBUG | 2024-04-16 09:29:01,908 | received: 20
+DEBUG | 2024-04-16 09:29:01,908 | num for this turn: 1
+DEBUG | 2024-04-16 09:29:19,462 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:29:19,462 | close screen
+DEBUG | 2024-04-16 09:29:32,121 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:29:32,121 | close screen
+DEBUG | 2024-04-16 09:29:40,750 | color: 1
+DEBUG | 2024-04-16 09:29:40,755 | color: 2
+DEBUG | 2024-04-16 09:29:40,768 | received: 20
+DEBUG | 2024-04-16 09:29:40,769 | num for this turn: 6
+DEBUG | 2024-04-16 09:29:44,981 | press on spot: 24
+DEBUG | 2024-04-16 09:29:44,993 | True
+DEBUG | 2024-04-16 09:29:44,993 | send: 20
+DEBUG | 2024-04-16 09:29:44,995 | received: 20
+DEBUG | 2024-04-16 09:29:44,995 | num for this turn: 2
+DEBUG | 2024-04-16 09:29:47,311 | press on spot: 1
+DEBUG | 2024-04-16 09:29:47,320 | True
+DEBUG | 2024-04-16 09:29:47,320 | send: 20
+DEBUG | 2024-04-16 09:29:47,321 | received: 20
+DEBUG | 2024-04-16 09:29:47,321 | num for this turn: 4
+DEBUG | 2024-04-16 09:29:52,590 | press on spot: 13
+DEBUG | 2024-04-16 09:29:52,600 | True
+DEBUG | 2024-04-16 09:29:52,601 | send: 20
+DEBUG | 2024-04-16 09:29:52,608 | received: 20
+DEBUG | 2024-04-16 09:29:52,608 | num for this turn: 2
+DEBUG | 2024-04-16 09:29:56,458 | press on spot: 17
+DEBUG | 2024-04-16 09:29:56,467 | True
+DEBUG | 2024-04-16 09:29:56,467 | send: 20
+DEBUG | 2024-04-16 09:29:56,472 | received: 20
+DEBUG | 2024-04-16 09:29:56,472 | num for this turn: 3
+DEBUG | 2024-04-16 09:30:02,189 | press on spot: 6
+DEBUG | 2024-04-16 09:30:02,198 | True
+DEBUG | 2024-04-16 09:30:02,198 | send: 20
+DEBUG | 2024-04-16 09:30:02,199 | received: 20
+DEBUG | 2024-04-16 09:30:02,199 | num for this turn: 1
+DEBUG | 2024-04-16 09:30:06,187 | press on spot: -100
+DEBUG | 2024-04-16 09:30:06,187 | True
+DEBUG | 2024-04-16 09:30:06,187 | send: 20
+DEBUG | 2024-04-16 09:30:06,188 | received: 20
+DEBUG | 2024-04-16 09:30:06,188 | num for this turn: 6
+DEBUG | 2024-04-16 09:30:26,992 | press on spot: 13
+DEBUG | 2024-04-16 09:30:27,001 | True
+DEBUG | 2024-04-16 09:30:27,001 | send: 20
+DEBUG | 2024-04-16 09:30:27,002 | received: 20
+DEBUG | 2024-04-16 09:30:27,002 | num for this turn: 4
+DEBUG | 2024-04-16 09:30:34,132 | press on spot: 0
+DEBUG | 2024-04-16 09:30:34,132 | False
+DEBUG | 2024-04-16 09:30:36,426 | press on spot: 0
+DEBUG | 2024-04-16 09:30:36,426 | False
+DEBUG | 2024-04-16 09:30:39,601 | press on spot: 0
+DEBUG | 2024-04-16 09:30:39,601 | False
+DEBUG | 2024-04-16 09:30:40,475 | press on spot: 19
+DEBUG | 2024-04-16 09:30:40,485 | True
+DEBUG | 2024-04-16 09:30:40,485 | send: 20
+DEBUG | 2024-04-16 09:30:40,486 | received: 20
+DEBUG | 2024-04-16 09:30:40,487 | num for this turn: 6
+DEBUG | 2024-04-16 09:30:48,290 | press on spot: 3
+DEBUG | 2024-04-16 09:30:48,300 | False
+DEBUG | 2024-04-16 09:30:52,022 | press on spot: 13
+DEBUG | 2024-04-16 09:30:52,031 | True
+DEBUG | 2024-04-16 09:30:52,031 | send: 20
+DEBUG | 2024-04-16 09:30:52,032 | received: 20
+DEBUG | 2024-04-16 09:30:52,032 | num for this turn: 4
+DEBUG | 2024-04-16 09:30:56,536 | press on spot: 17
+DEBUG | 2024-04-16 09:30:56,547 | True
+DEBUG | 2024-04-16 09:30:56,547 | send: 20
+DEBUG | 2024-04-16 09:30:56,548 | received: 20
+DEBUG | 2024-04-16 09:30:56,548 | num for this turn: 4
+DEBUG | 2024-04-16 09:31:06,450 | press on spot: 13
+DEBUG | 2024-04-16 09:31:06,458 | True
+DEBUG | 2024-04-16 09:31:06,459 | send: 20
+DEBUG | 2024-04-16 09:31:06,460 | received: 20
+DEBUG | 2024-04-16 09:31:06,460 | num for this turn: 3
+DEBUG | 2024-04-16 09:31:11,197 | press on spot: 21
+DEBUG | 2024-04-16 09:31:11,206 | True
+DEBUG | 2024-04-16 09:31:11,206 | send: 20
+DEBUG | 2024-04-16 09:31:11,207 | received: 20
+DEBUG | 2024-04-16 09:31:11,207 | num for this turn: 1
+DEBUG | 2024-04-16 09:31:15,626 | press on spot: 100
+DEBUG | 2024-04-16 09:31:15,626 | True
+DEBUG | 2024-04-16 09:31:15,626 | send: 20
+DEBUG | 2024-04-16 09:31:15,627 | received: 20
+DEBUG | 2024-04-16 09:31:15,628 | num for this turn: 6
+DEBUG | 2024-04-16 09:31:20,292 | press on spot: -100
+DEBUG | 2024-04-16 09:31:20,292 | False
+DEBUG | 2024-04-16 09:31:21,383 | press on spot: -100
+DEBUG | 2024-04-16 09:31:21,383 | False
+DEBUG | 2024-04-16 09:31:22,038 | press on spot: -100
+DEBUG | 2024-04-16 09:31:22,038 | False
+DEBUG | 2024-04-16 09:31:23,242 | press on spot: 19
+DEBUG | 2024-04-16 09:31:23,242 | False
+DEBUG | 2024-04-16 09:31:24,334 | press on spot: 19
+DEBUG | 2024-04-16 09:31:24,335 | False
+DEBUG | 2024-04-16 09:31:25,103 | press on spot: 19
+DEBUG | 2024-04-16 09:31:25,103 | False
+DEBUG | 2024-04-16 09:31:32,545 | press on spot: 19
+DEBUG | 2024-04-16 09:31:32,545 | False
+DEBUG | 2024-04-16 09:31:45,819 | send: 20
+DEBUG | 2024-04-16 09:31:45,825 | received: 20
+DEBUG | 2024-04-16 09:31:45,825 | num for this turn: 4
+DEBUG | 2024-04-16 09:31:52,181 | press on spot: 8
+DEBUG | 2024-04-16 09:31:52,189 | True
+DEBUG | 2024-04-16 09:31:52,189 | send: 20
+DEBUG | 2024-04-16 09:31:52,190 | received: 20
+DEBUG | 2024-04-16 09:31:52,190 | num for this turn: 3
+DEBUG | 2024-04-16 09:32:01,841 | press on spot: -100
+DEBUG | 2024-04-16 09:32:01,841 | True
+DEBUG | 2024-04-16 09:32:01,841 | send: 20
+DEBUG | 2024-04-16 09:32:01,846 | received: 20
+DEBUG | 2024-04-16 09:32:01,846 | num for this turn: 2
+DEBUG | 2024-04-16 09:32:20,139 | press on spot: 100
+DEBUG | 2024-04-16 09:32:20,140 | True
+DEBUG | 2024-04-16 09:32:20,140 | send: 20
+DEBUG | 2024-04-16 09:32:20,140 | received: 20
+DEBUG | 2024-04-16 09:32:20,140 | num for this turn: 3
+DEBUG | 2024-04-16 09:32:50,319 | send: 20
+DEBUG | 2024-04-16 09:32:50,327 | received: 20
+DEBUG | 2024-04-16 09:32:50,327 | num for this turn: 1
+DEBUG | 2024-04-16 09:33:20,508 | send: 20
+DEBUG | 2024-04-16 09:33:20,515 | received: 20
+DEBUG | 2024-04-16 09:33:20,516 | num for this turn: 3
+DEBUG | 2024-04-16 09:33:50,708 | send: 20
+DEBUG | 2024-04-16 09:33:50,709 | received: 20
+DEBUG | 2024-04-16 09:33:50,709 | num for this turn: 4
+DEBUG | 2024-04-16 09:34:20,841 | send: 20
+DEBUG | 2024-04-16 09:34:20,842 | received: 20
+DEBUG | 2024-04-16 09:34:20,842 | num for this turn: 2
+DEBUG | 2024-04-16 09:34:51,028 | send: 20
+DEBUG | 2024-04-16 09:34:51,029 | received: 20
+DEBUG | 2024-04-16 09:34:51,030 | num for this turn: 5
+DEBUG | 2024-04-16 09:35:21,204 | send: 20
+DEBUG | 2024-04-16 09:35:21,207 | received: 20
+DEBUG | 2024-04-16 09:35:21,207 | num for this turn: 4
+DEBUG | 2024-04-16 09:35:51,362 | send: 20
+DEBUG | 2024-04-16 09:35:51,363 | received: 20
+DEBUG | 2024-04-16 09:35:51,363 | num for this turn: 1
+DEBUG | 2024-04-16 09:36:21,502 | send: 20
+DEBUG | 2024-04-16 09:36:21,503 | received: 20
+DEBUG | 2024-04-16 09:36:21,503 | num for this turn: 2
+DEBUG | 2024-04-16 09:36:51,658 | send: 20
+DEBUG | 2024-04-16 09:36:51,660 | received: 20
+DEBUG | 2024-04-16 09:36:51,660 | num for this turn: 5
+DEBUG | 2024-04-16 09:38:20,323 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:38:20,323 | close screen
+DEBUG | 2024-04-16 09:38:24,886 | color: 1
+DEBUG | 2024-04-16 09:38:24,896 | color: 2
+DEBUG | 2024-04-16 09:38:24,899 | received: 20
+DEBUG | 2024-04-16 09:38:24,899 | num for this turn: 6
+DEBUG | 2024-04-16 09:38:28,892 | An error occurred: cannot access local variable 'spot' where it is not associated with a value
+DEBUG | 2024-04-16 09:38:28,892 | close screen
+DEBUG | 2024-04-16 09:42:14,765 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:42:14,766 | close screen
+DEBUG | 2024-04-16 09:42:19,704 | color: 1
+DEBUG | 2024-04-16 09:42:19,708 | color: 2
+DEBUG | 2024-04-16 09:42:19,722 | received: 20
+DEBUG | 2024-04-16 09:42:19,723 | num for this turn: 4
+DEBUG | 2024-04-16 09:42:21,234 | False
+DEBUG | 2024-04-16 09:42:21,234 | False
+DEBUG | 2024-04-16 09:42:21,234 | False
+DEBUG | 2024-04-16 09:42:21,234 | False
+DEBUG | 2024-04-16 09:42:21,709 | False
+DEBUG | 2024-04-16 09:42:21,709 | False
+DEBUG | 2024-04-16 09:42:21,709 | False
+DEBUG | 2024-04-16 09:42:21,817 | False
+DEBUG | 2024-04-16 09:42:22,146 | False
+DEBUG | 2024-04-16 09:42:22,255 | False
+DEBUG | 2024-04-16 09:42:22,364 | False
+DEBUG | 2024-04-16 09:42:22,474 | False
+DEBUG | 2024-04-16 09:42:22,585 | press on spot: 24
+DEBUG | 2024-04-16 09:42:22,593 | True
+DEBUG | 2024-04-16 09:42:22,593 | True
+DEBUG | 2024-04-16 09:42:22,593 | send: 20
+DEBUG | 2024-04-16 09:42:22,594 | received: 20
+DEBUG | 2024-04-16 09:42:22,594 | num for this turn: 1
+DEBUG | 2024-04-16 09:42:28,518 | An error occurred: cannot access local variable 'spot' where it is not associated with a value
+DEBUG | 2024-04-16 09:42:28,518 | close screen
+DEBUG | 2024-04-16 09:43:08,110 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 09:43:08,111 | close screen
+DEBUG | 2024-04-16 09:43:12,930 | color: 1
+DEBUG | 2024-04-16 09:43:12,945 | received: 20
+DEBUG | 2024-04-16 09:43:12,946 | num for this turn: 5
+DEBUG | 2024-04-16 09:43:14,136 | False
+DEBUG | 2024-04-16 09:43:14,136 | False
+DEBUG | 2024-04-16 09:43:14,136 | False
+DEBUG | 2024-04-16 09:43:14,136 | False
+DEBUG | 2024-04-16 09:43:14,492 | False
+DEBUG | 2024-04-16 09:43:14,492 | False
+DEBUG | 2024-04-16 09:43:14,492 | False
+DEBUG | 2024-04-16 09:43:14,604 | False
+DEBUG | 2024-04-16 09:43:14,946 | False
+DEBUG | 2024-04-16 09:43:15,056 | False
+DEBUG | 2024-04-16 09:43:15,056 | False
+DEBUG | 2024-04-16 09:43:15,166 | False
+DEBUG | 2024-04-16 09:43:15,274 | False
+DEBUG | 2024-04-16 09:43:15,384 | False
+DEBUG | 2024-04-16 09:43:15,493 | False
+DEBUG | 2024-04-16 09:43:15,602 | False
+DEBUG | 2024-04-16 09:43:15,712 | False
+DEBUG | 2024-04-16 09:43:15,821 | False
+DEBUG | 2024-04-16 09:43:15,931 | False
+DEBUG | 2024-04-16 09:43:16,040 | False
+DEBUG | 2024-04-16 09:43:16,150 | False
+DEBUG | 2024-04-16 09:43:16,259 | False
+DEBUG | 2024-04-16 09:43:16,367 | False
+DEBUG | 2024-04-16 09:43:16,476 | False
+DEBUG | 2024-04-16 09:43:16,585 | False
+DEBUG | 2024-04-16 09:43:16,697 | False
+DEBUG | 2024-04-16 09:43:16,806 | False
+DEBUG | 2024-04-16 09:43:16,919 | press on spot: 8
+DEBUG | 2024-04-16 09:43:16,929 | True
+DEBUG | 2024-04-16 09:43:16,930 | send: 20
+DEBUG | 2024-04-16 09:43:20,943 | received: 20
+DEBUG | 2024-04-16 09:43:20,943 | num for this turn: 1
+DEBUG | 2024-04-16 09:43:22,275 | False
+DEBUG | 2024-04-16 09:43:22,276 | False
+DEBUG | 2024-04-16 09:43:22,277 | False
+DEBUG | 2024-04-16 09:43:22,277 | False
+DEBUG | 2024-04-16 09:43:22,722 | False
+DEBUG | 2024-04-16 09:43:22,723 | False
+DEBUG | 2024-04-16 09:43:22,723 | False
+DEBUG | 2024-04-16 09:43:22,833 | False
+DEBUG | 2024-04-16 09:43:22,941 | False
+DEBUG | 2024-04-16 09:43:23,380 | False
+DEBUG | 2024-04-16 09:43:23,820 | False
+DEBUG | 2024-04-16 09:43:23,820 | False
+DEBUG | 2024-04-16 09:43:23,820 | False
+DEBUG | 2024-04-16 09:43:23,929 | False
+DEBUG | 2024-04-16 09:43:24,150 | False
+DEBUG | 2024-04-16 09:43:24,259 | press on spot: 0
+DEBUG | 2024-04-16 09:43:24,259 | False
+DEBUG | 2024-04-16 09:43:24,369 | False
+DEBUG | 2024-04-16 09:43:24,915 | False
+DEBUG | 2024-04-16 09:43:25,025 | False
+DEBUG | 2024-04-16 09:43:25,135 | False
+DEBUG | 2024-04-16 09:43:25,243 | False
+DEBUG | 2024-04-16 09:43:25,352 | press on spot: 0
+DEBUG | 2024-04-16 09:43:25,352 | False
+DEBUG | 2024-04-16 09:43:25,462 | False
+DEBUG | 2024-04-16 09:43:25,571 | False
+DEBUG | 2024-04-16 09:43:25,681 | False
+DEBUG | 2024-04-16 09:43:25,789 | False
+DEBUG | 2024-04-16 09:43:25,899 | False
+DEBUG | 2024-04-16 09:43:26,009 | False
+DEBUG | 2024-04-16 09:43:26,118 | False
+DEBUG | 2024-04-16 09:43:26,118 | press on spot: 0
+DEBUG | 2024-04-16 09:43:26,118 | False
+DEBUG | 2024-04-16 09:43:26,226 | False
+DEBUG | 2024-04-16 09:43:26,447 | False
+DEBUG | 2024-04-16 09:43:26,556 | False
+DEBUG | 2024-04-16 09:43:26,665 | False
+DEBUG | 2024-04-16 09:43:26,774 | False
+DEBUG | 2024-04-16 09:43:26,882 | press on spot: 0
+DEBUG | 2024-04-16 09:43:26,883 | False
+DEBUG | 2024-04-16 09:43:26,993 | False
+DEBUG | 2024-04-16 09:43:27,102 | False
+DEBUG | 2024-04-16 09:43:27,210 | False
+DEBUG | 2024-04-16 09:43:27,319 | False
+DEBUG | 2024-04-16 09:43:27,429 | False
+DEBUG | 2024-04-16 09:43:27,647 | False
+DEBUG | 2024-04-16 09:43:27,647 | press on spot: 0
+DEBUG | 2024-04-16 09:43:27,647 | False
+DEBUG | 2024-04-16 09:43:27,761 | False
+DEBUG | 2024-04-16 09:43:27,869 | press on spot: 0
+DEBUG | 2024-04-16 09:43:27,869 | False
+DEBUG | 2024-04-16 09:43:27,979 | False
+DEBUG | 2024-04-16 09:43:28,094 | False
+DEBUG | 2024-04-16 09:43:28,206 | False
+DEBUG | 2024-04-16 09:43:28,315 | False
+DEBUG | 2024-04-16 09:43:28,425 | False
+DEBUG | 2024-04-16 09:43:28,535 | False
+DEBUG | 2024-04-16 09:43:28,644 | False
+DEBUG | 2024-04-16 09:43:28,754 | False
+DEBUG | 2024-04-16 09:43:28,863 | False
+DEBUG | 2024-04-16 09:43:28,978 | False
+DEBUG | 2024-04-16 09:43:29,313 | False
+DEBUG | 2024-04-16 09:43:29,423 | False
+DEBUG | 2024-04-16 09:43:29,532 | False
+DEBUG | 2024-04-16 09:43:29,641 | False
+DEBUG | 2024-04-16 09:43:29,751 | False
+DEBUG | 2024-04-16 09:43:29,861 | False
+DEBUG | 2024-04-16 09:43:29,970 | False
+DEBUG | 2024-04-16 09:43:30,079 | press on spot: 13
+DEBUG | 2024-04-16 09:43:30,089 | False
+DEBUG | 2024-04-16 09:43:30,089 | False
+DEBUG | 2024-04-16 09:43:30,308 | False
+DEBUG | 2024-04-16 09:43:30,417 | False
+DEBUG | 2024-04-16 09:43:30,526 | False
+DEBUG | 2024-04-16 09:43:30,635 | False
+DEBUG | 2024-04-16 09:43:30,744 | False
+DEBUG | 2024-04-16 09:43:30,853 | False
+DEBUG | 2024-04-16 09:43:30,964 | press on spot: 8
+DEBUG | 2024-04-16 09:43:30,973 | True
+DEBUG | 2024-04-16 09:43:30,973 | True
+DEBUG | 2024-04-16 09:43:30,973 | send: 20
+DEBUG | 2024-04-16 09:43:34,498 | received: 20
+DEBUG | 2024-04-16 09:43:34,498 | num for this turn: 6
+DEBUG | 2024-04-16 09:43:35,936 | False
+DEBUG | 2024-04-16 09:43:35,936 | False
+DEBUG | 2024-04-16 09:43:35,936 | False
+DEBUG | 2024-04-16 09:43:35,936 | False
+DEBUG | 2024-04-16 09:43:36,267 | False
+DEBUG | 2024-04-16 09:43:36,268 | False
+DEBUG | 2024-04-16 09:43:36,268 | False
+DEBUG | 2024-04-16 09:43:36,376 | False
+DEBUG | 2024-04-16 09:43:36,485 | False
+DEBUG | 2024-04-16 09:43:36,705 | False
+DEBUG | 2024-04-16 09:43:36,816 | False
+DEBUG | 2024-04-16 09:43:36,926 | False
+DEBUG | 2024-04-16 09:43:37,035 | False
+DEBUG | 2024-04-16 09:43:37,145 | False
+DEBUG | 2024-04-16 09:43:37,254 | False
+DEBUG | 2024-04-16 09:43:37,254 | press on spot: 100
+DEBUG | 2024-04-16 09:43:37,255 | False
+DEBUG | 2024-04-16 09:43:37,366 | False
+DEBUG | 2024-04-16 09:43:37,588 | False
+DEBUG | 2024-04-16 09:43:37,697 | False
+DEBUG | 2024-04-16 09:43:37,807 | False
+DEBUG | 2024-04-16 09:43:37,916 | False
+DEBUG | 2024-04-16 09:43:41,743 | False
+DEBUG | 2024-04-16 09:43:41,853 | False
+DEBUG | 2024-04-16 09:43:41,853 | False
+DEBUG | 2024-04-16 09:43:41,853 | False
+DEBUG | 2024-04-16 09:43:42,181 | False
+DEBUG | 2024-04-16 09:43:42,181 | False
+DEBUG | 2024-04-16 09:43:42,181 | False
+DEBUG | 2024-04-16 09:43:42,289 | False
+DEBUG | 2024-04-16 09:43:42,400 | False
+DEBUG | 2024-04-16 09:43:42,508 | False
+DEBUG | 2024-04-16 09:43:42,617 | False
+DEBUG | 2024-04-16 09:43:42,836 | press on spot: 0
+DEBUG | 2024-04-16 09:43:42,836 | False
+DEBUG | 2024-04-16 09:43:42,945 | False
+DEBUG | 2024-04-16 09:43:44,150 | False
+DEBUG | 2024-04-16 09:43:44,150 | False
+DEBUG | 2024-04-16 09:43:44,150 | False
+DEBUG | 2024-04-16 09:43:46,506 | False
+DEBUG | 2024-04-16 09:43:46,506 | False
+DEBUG | 2024-04-16 09:43:46,506 | False
+DEBUG | 2024-04-16 09:43:46,506 | False
+DEBUG | 2024-04-16 09:43:47,329 | False
+DEBUG | 2024-04-16 09:43:47,329 | False
+DEBUG | 2024-04-16 09:43:47,329 | False
+DEBUG | 2024-04-16 09:43:47,443 | False
+DEBUG | 2024-04-16 09:43:47,550 | False
+DEBUG | 2024-04-16 09:43:47,659 | False
+DEBUG | 2024-04-16 09:43:47,768 | False
+DEBUG | 2024-04-16 09:43:47,879 | False
+DEBUG | 2024-04-16 09:43:47,990 | False
+DEBUG | 2024-04-16 09:43:48,101 | press on spot: 0
+DEBUG | 2024-04-16 09:43:48,101 | False
+DEBUG | 2024-04-16 09:43:48,101 | False
+DEBUG | 2024-04-16 09:43:48,318 | False
+DEBUG | 2024-04-16 09:43:48,428 | False
+DEBUG | 2024-04-16 09:43:48,537 | False
+DEBUG | 2024-04-16 09:43:48,646 | False
+DEBUG | 2024-04-16 09:43:48,755 | False
+DEBUG | 2024-04-16 09:43:48,864 | False
+DEBUG | 2024-04-16 09:43:48,974 | False
+DEBUG | 2024-04-16 09:43:49,083 | False
+DEBUG | 2024-04-16 09:43:49,192 | False
+DEBUG | 2024-04-16 09:43:49,301 | False
+DEBUG | 2024-04-16 09:43:49,411 | False
+DEBUG | 2024-04-16 09:43:49,520 | False
+DEBUG | 2024-04-16 09:43:49,638 | False
+DEBUG | 2024-04-16 09:43:49,746 | False
+DEBUG | 2024-04-16 09:43:49,856 | False
+DEBUG | 2024-04-16 09:43:49,964 | False
+DEBUG | 2024-04-16 09:43:50,073 | False
+DEBUG | 2024-04-16 09:43:50,184 | False
+DEBUG | 2024-04-16 09:43:50,294 | False
+DEBUG | 2024-04-16 09:43:50,404 | False
+DEBUG | 2024-04-16 09:43:50,623 | False
+DEBUG | 2024-04-16 09:43:50,731 | False
+DEBUG | 2024-04-16 09:43:50,840 | False
+DEBUG | 2024-04-16 09:43:50,949 | False
+DEBUG | 2024-04-16 09:43:51,059 | False
+DEBUG | 2024-04-16 09:43:51,059 | press on spot: 0
+DEBUG | 2024-04-16 09:43:51,059 | False
+DEBUG | 2024-04-16 09:43:51,276 | False
+DEBUG | 2024-04-16 09:43:51,385 | False
+DEBUG | 2024-04-16 09:43:51,494 | False
+DEBUG | 2024-04-16 09:43:51,603 | False
+DEBUG | 2024-04-16 09:43:51,713 | False
+DEBUG | 2024-04-16 09:43:51,822 | False
+DEBUG | 2024-04-16 09:43:51,822 | False
+DEBUG | 2024-04-16 09:43:52,042 | False
+DEBUG | 2024-04-16 09:43:52,150 | False
+DEBUG | 2024-04-16 09:43:52,260 | False
+DEBUG | 2024-04-16 09:43:52,371 | press on spot: 0
+DEBUG | 2024-04-16 09:43:52,371 | False
+DEBUG | 2024-04-16 09:43:52,479 | False
+DEBUG | 2024-04-16 09:43:52,589 | False
+DEBUG | 2024-04-16 09:43:52,697 | False
+DEBUG | 2024-04-16 09:43:52,806 | False
+DEBUG | 2024-04-16 09:43:52,806 | False
+DEBUG | 2024-04-16 09:43:52,915 | False
+DEBUG | 2024-04-16 09:43:53,026 | press on spot: 0
+DEBUG | 2024-04-16 09:43:53,027 | False
+DEBUG | 2024-04-16 09:43:53,135 | False
+DEBUG | 2024-04-16 09:43:53,245 | False
+DEBUG | 2024-04-16 09:43:53,355 | False
+DEBUG | 2024-04-16 09:43:53,464 | False
+DEBUG | 2024-04-16 09:43:53,573 | False
+DEBUG | 2024-04-16 09:43:53,683 | False
+DEBUG | 2024-04-16 09:43:53,794 | False
+DEBUG | 2024-04-16 09:43:54,012 | False
+DEBUG | 2024-04-16 09:43:54,121 | False
+DEBUG | 2024-04-16 09:43:54,450 | press on spot: 0
+DEBUG | 2024-04-16 09:43:54,450 | False
+DEBUG | 2024-04-16 09:43:54,450 | False
+DEBUG | 2024-04-16 09:43:54,885 | False
+DEBUG | 2024-04-16 09:43:54,994 | False
+DEBUG | 2024-04-16 09:43:55,103 | False
+DEBUG | 2024-04-16 09:43:55,213 | False
+DEBUG | 2024-04-16 09:43:55,321 | False
+DEBUG | 2024-04-16 09:43:55,543 | False
+DEBUG | 2024-04-16 09:43:55,652 | False
+DEBUG | 2024-04-16 09:43:55,764 | False
+DEBUG | 2024-04-16 09:43:55,764 | False
+DEBUG | 2024-04-16 09:43:55,872 | False
+DEBUG | 2024-04-16 09:43:55,981 | False
+DEBUG | 2024-04-16 09:43:56,091 | False
+DEBUG | 2024-04-16 09:43:56,420 | False
+DEBUG | 2024-04-16 09:43:56,528 | False
+DEBUG | 2024-04-16 09:43:56,857 | press on spot: 0
+DEBUG | 2024-04-16 09:43:56,857 | False
+DEBUG | 2024-04-16 09:43:57,075 | False
+DEBUG | 2024-04-16 09:43:57,411 | False
+DEBUG | 2024-04-16 09:43:57,520 | False
+DEBUG | 2024-04-16 09:43:57,966 | press on spot: 1
+DEBUG | 2024-04-16 09:43:57,966 | False
+DEBUG | 2024-04-16 09:43:58,183 | False
+DEBUG | 2024-04-16 09:44:04,647 | send: 20
+DEBUG | 2024-04-16 09:44:20,856 | received: 20
+DEBUG | 2024-04-16 09:44:20,857 | num for this turn: 1
+DEBUG | 2024-04-16 09:44:22,413 | False
+DEBUG | 2024-04-16 09:44:22,413 | False
+DEBUG | 2024-04-16 09:44:22,413 | False
+DEBUG | 2024-04-16 09:44:22,413 | False
+DEBUG | 2024-04-16 09:44:22,853 | False
+DEBUG | 2024-04-16 09:44:22,853 | False
+DEBUG | 2024-04-16 09:44:22,853 | False
+DEBUG | 2024-04-16 09:44:22,962 | False
+DEBUG | 2024-04-16 09:44:23,071 | False
+DEBUG | 2024-04-16 09:44:23,616 | False
+DEBUG | 2024-04-16 09:44:23,725 | False
+DEBUG | 2024-04-16 09:44:23,835 | False
+DEBUG | 2024-04-16 09:44:23,946 | False
+DEBUG | 2024-04-16 09:44:24,054 | False
+DEBUG | 2024-04-16 09:44:24,163 | False
+DEBUG | 2024-04-16 09:44:24,272 | False
+DEBUG | 2024-04-16 09:44:24,819 | press on spot: 100
+DEBUG | 2024-04-16 09:44:24,819 | True
+DEBUG | 2024-04-16 09:44:24,819 | send: 20
+DEBUG | 2024-04-16 09:44:35,826 | received: 20
+DEBUG | 2024-04-16 09:44:35,826 | num for this turn: 5
+DEBUG | 2024-04-16 09:44:37,158 | False
+DEBUG | 2024-04-16 09:44:37,158 | False
+DEBUG | 2024-04-16 09:44:37,158 | False
+DEBUG | 2024-04-16 09:44:37,158 | False
+DEBUG | 2024-04-16 09:44:37,706 | False
+DEBUG | 2024-04-16 09:44:37,706 | False
+DEBUG | 2024-04-16 09:44:37,706 | False
+DEBUG | 2024-04-16 09:44:37,816 | False
+DEBUG | 2024-04-16 09:44:38,035 | False
+DEBUG | 2024-04-16 09:44:38,146 | False
+DEBUG | 2024-04-16 09:44:38,255 | False
+DEBUG | 2024-04-16 09:44:38,365 | False
+DEBUG | 2024-04-16 09:44:38,473 | False
+DEBUG | 2024-04-16 09:44:38,582 | False
+DEBUG | 2024-04-16 09:44:39,780 | press on spot: 100
+DEBUG | 2024-04-16 09:44:39,781 | True
+DEBUG | 2024-04-16 09:44:39,781 | send: 20
+DEBUG | 2024-04-16 09:44:43,914 | received: 20
+DEBUG | 2024-04-16 09:44:43,914 | num for this turn: 2
+DEBUG | 2024-04-16 09:44:46,804 | False
+DEBUG | 2024-04-16 09:44:46,804 | False
+DEBUG | 2024-04-16 09:44:46,804 | False
+DEBUG | 2024-04-16 09:44:46,804 | False
+DEBUG | 2024-04-16 09:44:47,133 | False
+DEBUG | 2024-04-16 09:44:47,133 | False
+DEBUG | 2024-04-16 09:44:47,133 | False
+DEBUG | 2024-04-16 09:44:47,241 | False
+DEBUG | 2024-04-16 09:44:47,350 | False
+DEBUG | 2024-04-16 09:44:47,677 | False
+DEBUG | 2024-04-16 09:44:47,784 | False
+DEBUG | 2024-04-16 09:44:47,894 | False
+DEBUG | 2024-04-16 09:44:48,007 | False
+DEBUG | 2024-04-16 09:44:48,116 | False
+DEBUG | 2024-04-16 09:44:48,226 | False
+DEBUG | 2024-04-16 09:44:48,443 | press on spot: 24
+DEBUG | 2024-04-16 09:44:48,452 | True
+DEBUG | 2024-04-16 09:44:48,452 | True
+DEBUG | 2024-04-16 09:44:48,452 | send: 20
+DEBUG | 2024-04-16 09:44:53,203 | received: 20
+DEBUG | 2024-04-16 09:44:53,203 | num for this turn: 2
+DEBUG | 2024-04-16 09:44:54,305 | False
+DEBUG | 2024-04-16 09:44:54,305 | False
+DEBUG | 2024-04-16 09:44:54,305 | False
+DEBUG | 2024-04-16 09:44:54,305 | False
+DEBUG | 2024-04-16 09:44:54,637 | False
+DEBUG | 2024-04-16 09:44:54,637 | False
+DEBUG | 2024-04-16 09:44:54,637 | False
+DEBUG | 2024-04-16 09:44:54,747 | False
+DEBUG | 2024-04-16 09:44:54,856 | False
+DEBUG | 2024-04-16 09:44:55,182 | False
+DEBUG | 2024-04-16 09:44:55,291 | False
+DEBUG | 2024-04-16 09:44:55,401 | False
+DEBUG | 2024-04-16 09:44:55,511 | False
+DEBUG | 2024-04-16 09:44:55,620 | False
+DEBUG | 2024-04-16 09:44:55,839 | press on spot: 22
+DEBUG | 2024-04-16 09:44:55,848 | True
+DEBUG | 2024-04-16 09:44:55,848 | send: 20
+DEBUG | 2024-04-16 09:44:58,721 | received: 20
+DEBUG | 2024-04-16 09:44:58,721 | num for this turn: 6
+DEBUG | 2024-04-16 09:44:59,502 | False
+DEBUG | 2024-04-16 09:44:59,502 | False
+DEBUG | 2024-04-16 09:44:59,502 | False
+DEBUG | 2024-04-16 09:44:59,502 | False
+DEBUG | 2024-04-16 09:44:59,834 | False
+DEBUG | 2024-04-16 09:44:59,834 | False
+DEBUG | 2024-04-16 09:44:59,834 | False
+DEBUG | 2024-04-16 09:44:59,944 | False
+DEBUG | 2024-04-16 09:45:00,162 | False
+DEBUG | 2024-04-16 09:45:00,271 | False
+DEBUG | 2024-04-16 09:45:00,380 | False
+DEBUG | 2024-04-16 09:45:00,489 | False
+DEBUG | 2024-04-16 09:45:00,598 | False
+DEBUG | 2024-04-16 09:45:00,707 | False
+DEBUG | 2024-04-16 09:45:01,143 | False
+DEBUG | 2024-04-16 09:45:01,251 | False
+DEBUG | 2024-04-16 09:45:01,470 | press on spot: 24
+DEBUG | 2024-04-16 09:45:01,479 | True
+DEBUG | 2024-04-16 09:45:01,480 | send: 20
+DEBUG | 2024-04-16 09:45:07,198 | received: 20
+DEBUG | 2024-04-16 09:45:07,198 | num for this turn: 3
+DEBUG | 2024-04-16 09:45:08,411 | False
+DEBUG | 2024-04-16 09:45:08,412 | False
+DEBUG | 2024-04-16 09:45:08,412 | False
+DEBUG | 2024-04-16 09:45:08,412 | False
+DEBUG | 2024-04-16 09:45:08,639 | False
+DEBUG | 2024-04-16 09:45:08,639 | False
+DEBUG | 2024-04-16 09:45:08,639 | False
+DEBUG | 2024-04-16 09:45:08,748 | False
+DEBUG | 2024-04-16 09:45:09,077 | False
+DEBUG | 2024-04-16 09:45:09,187 | False
+DEBUG | 2024-04-16 09:45:09,297 | False
+DEBUG | 2024-04-16 09:45:09,406 | False
+DEBUG | 2024-04-16 09:45:09,516 | False
+DEBUG | 2024-04-16 09:45:09,736 | press on spot: 100
+DEBUG | 2024-04-16 09:45:09,736 | True
+DEBUG | 2024-04-16 09:45:09,736 | True
+DEBUG | 2024-04-16 09:45:09,736 | send: 20
+DEBUG | 2024-04-16 10:03:06,946 | received socket error [WinError 10054] An existing connection was forcibly closed by the remote host
+DEBUG | 2024-04-16 10:03:06,947 | close screen
+DEBUG | 2024-04-16 10:03:13,357 | color: 1
+DEBUG | 2024-04-16 10:03:13,373 | received: 20
+DEBUG | 2024-04-16 10:03:13,373 | num for this turn: 6
+DEBUG | 2024-04-16 10:03:17,473 | False
+DEBUG | 2024-04-16 10:03:17,473 | False
+DEBUG | 2024-04-16 10:03:17,473 | False
+DEBUG | 2024-04-16 10:03:17,473 | False
+DEBUG | 2024-04-16 10:03:17,912 | False
+DEBUG | 2024-04-16 10:03:17,912 | False
+DEBUG | 2024-04-16 10:03:17,912 | False
+DEBUG | 2024-04-16 10:03:18,023 | False
+DEBUG | 2024-04-16 10:03:18,241 | False
+DEBUG | 2024-04-16 10:03:18,352 | False
+DEBUG | 2024-04-16 10:03:18,462 | False
+DEBUG | 2024-04-16 10:03:18,681 | False
+DEBUG | 2024-04-16 10:03:18,790 | False
+DEBUG | 2024-04-16 10:03:18,900 | False
+DEBUG | 2024-04-16 10:03:19,558 | False
+DEBUG | 2024-04-16 10:03:20,000 | False
+DEBUG | 2024-04-16 10:03:20,112 | False
+DEBUG | 2024-04-16 10:03:20,445 | press on spot: 24
+DEBUG | 2024-04-16 10:03:20,454 | True
+DEBUG | 2024-04-16 10:03:20,454 | send: 20
+DEBUG | 2024-04-16 10:03:28,564 | close screen

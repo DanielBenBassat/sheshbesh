@@ -39,7 +39,8 @@ FONT = pygame.font.Font(None, 36)
 SQUARES_POS = {1: [121.5, 525], 2: [164.5, 525], 3: [207.5, 525], 4: [250.5, 525], 5: [293.5, 525], 6: [336.5, 525],
                7: [405.5, 525], 8: [448.5, 525], 9: [491.5, 525], 10: [534.5, 525], 11: [579.5, 525], 12: [620.5, 525],
                13: [620.5, 120], 14: [579.5, 120], 15: [534.5, 120], 16: [491.5, 120], 17: [448.5, 120], 18: [405.5, 120],
-               19: [336.5, 120], 20: [293.5, 120], 21: [250.5, 120], 22: [207.5, 120], 23: [164.5, 120], 24: [121.5, 120]}
+               19: [336.5, 120], 20: [293.5, 120], 21: [250.5, 120], 22: [207.5, 120], 23: [164.5, 120], 24: [121.5, 120],
+               -100: [65, 525], 100: [65, 120]}
 
 
 def draw_board(board, color, screen):
@@ -61,16 +62,19 @@ def draw_board(board, color, screen):
         text_rect.center = (50, 10)
         screen.blit(text, text_rect)
 
+
     for key in board.keys():
         if board[key][1] == "1":
-            color = WHITE
+            col = WHITE
         elif board[key][1] == "2":
-            color = BLUE
+            col = BLUE
+        else:
+            col = RED
 
-        if color == WHITE or color == BLUE:
+        if col == WHITE or col == BLUE:
             x, y = SQUARES_POS[key]
             for i in range(board[key][0]):
-                pygame.draw.circle(screen, color, [x, y], 20)
+                pygame.draw.circle(screen, col, [x, y], 20)
                 if key <= 12:
                     y = y - 40
                 else:
@@ -84,21 +88,31 @@ def find_spot(x, y):
     :param y: y pos
     :return: the spot on the board of x and y
     """
-    x1 = 100
-    x2 = 143
-    value = 0
-    for i in range(1, 13):
-        if x1 <= x < x2:
+    try:
+        x1 = 100
+        x2 = 143
+        value = 0
+        for i in range(1, 13):
+            if x1 <= x < x2:
+                if 100 < y < 300:
+                    value = 25 - i
+                elif 340 < y < 540:
+                    value = i
+            x1 = x1 + 43
+            x2 = x2 + 43
+            if i == 6:
+                x1 = x1 + 26
+                x2 = x2 + 26
+        if 57<x<100:
             if 100 < y < 300:
-                value = 25 - i
+                value = 100
             elif 340 < y < 540:
-                value = i
-        x1 = x1 + 43
-        x2 = x2 + 43
-        if i == 6:
-            x1 = x1 + 26
-            x2 = x2 + 26
-    return value
+                value = -100
+    except Exception as e:
+        logging.debug(f"An error occurred: {e}")
+        value = -1
+    finally:
+        return value
 
 
 def turn(screen, board, color, num, spot):
@@ -128,7 +142,7 @@ def turn(screen, board, color, num, spot):
             # regular turn
 
             if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
-
+                print("regular")
                 board[spot1][0] = board[spot1][0] - 1
                 board[spot2][0] = board[spot2][0] + 1
 
@@ -136,6 +150,22 @@ def turn(screen, board, color, num, spot):
 
                 if board[spot1][0] == 0:
                     board[spot1][1] = "0"
+                turn_correct = True
+
+            elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
+                print("got to eat")
+                if board[spot2][1] == "1":
+                    board[100][0] = board[100][0] +1
+                elif board[spot2][1] == "2":
+                    board[-100][0] = board[-100][0] +1
+
+                board[spot1][0] = board[spot1][0] - 1
+                board[spot2][1] = board[spot1][1]
+
+
+                if board[spot1][0] == 0:
+                    board[spot1][1] = "0"
+
                 turn_correct = True
 
             else:
@@ -149,7 +179,54 @@ def turn(screen, board, color, num, spot):
     finally:
         return board, turn_correct
 
+def turn_eaten_player(screen, board, color, num, spot):
 
+    try:
+        turn_correct = False
+        spot1 =spot
+        if color == "1":# white
+            spot2 = 25 - num
+        elif color == "2":#blue
+            spot2 =num
+
+
+
+
+        if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
+
+            board[spot1][0] = board[spot1][0] - 1
+            board[spot2][0] = board[spot2][0] + 1
+
+            board[spot2][1] = board[spot1][1]
+
+
+            turn_correct = True
+        elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
+            print("got to eat")
+            if board[spot2][1] == "1":
+                board[100][0] = board[100][0] +1
+            elif board[spot2][1] == "2":
+                board[-100][0] = board[-100][0] +1
+
+            board[spot1][0] = board[spot1][0] - 1
+            board[spot2][1] = board[spot1][1]
+
+
+
+            turn_correct = True
+
+
+
+        else:
+            text = FONT.render("player can't go", True, RED)
+            text_rect = text.get_rect()
+            text_rect.center = (371, 600)
+            screen.blit(text, text_rect)
+
+    except socket.error as err:
+        turn_correct = False
+    finally:
+        return board, turn_correct
 
 def cangetout(board, color):
     """
@@ -320,12 +397,23 @@ def main():
                                     x, y = pygame.mouse.get_pos()
                                     spot = find_spot(x, y)
                                     logging.debug("press on spot: " + str(spot))
-                                    if 0 < spot < 25:
-                                        if board[spot][1] == color:
-                                            board, turn_correct = turn(screen, board, color, num, spot)
-                                            screen.blit(BOARD_IMG, (0, 0))
-                                            draw_board(board, color, screen)
-                                    logging.debug(turn_correct)
+                                    if (color == "1" and board[100][0] > 0) or (color == "2" and board[-100][0] > 0): # eaten player
+                                        if (color == "1" and spot == 100) or (color == "2" and spot ==-100):
+                                            print("i want to back")
+                                            print(board[100][1] + "" + board[-100][1])
+                                            board, turn_correct = turn_eaten_player(screen, board, color, num, spot)
+                                            print(board[100][1] + "" + board[-100][1])
+
+                                    else:
+                                        if 0 < spot < 25:
+                                            if board[spot][1] == color:
+                                                print(board[100][1] + "" + board[-100][1])
+                                                board, turn_correct = turn(screen, board, color, num, spot)
+                                                print(board[100][1] + "" + board[-100][1])
+
+                                                screen.blit(BOARD_IMG, (0, 0))
+                                                draw_board(board, color, screen)
+                                logging.debug(turn_correct)
                         else:
                             turn_correct = True
 
@@ -371,9 +459,9 @@ if __name__ == "__main__":
 
     screen = pygame.display.set_mode(SIZE)
     board = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
-              7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
-              13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-              19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+             7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
+             13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
+             19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
     color = "2"
     num = 1
     spot = 1

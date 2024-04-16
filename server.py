@@ -15,12 +15,15 @@ LOG_DIR = 'log'
 LOG_FILE = LOG_DIR + '/server.log'
 
 # 1- white, 2- blue, 0 -none
-INITIAL_BOARD2 = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
+INITIAL_BOARD = {1: [2, "2"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [5, "1"],
                  7: [0, "0"], 8: [3, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [5, "2"],
                  13: [5, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [3, "2"], 18: [0, "0"],
-                 19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"]}
+                 19: [5, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [0, "0"], 24: [2, "1"],
+                  100: [0, "1"], #white eaten
+                   -100: [0, "2"] #blue eaten
+                   }
 
-INITIAL_BOARD = {1: [3, "1"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [0, "1"],
+INITIAL_BOARD2 = {1: [3, "1"], 2: [0, "0"], 3: [0, "0"], 4: [0, "0"], 5: [0, "0"], 6: [0, "1"],
                  7: [0, "0"], 8: [0, "1"], 9: [0, "0"], 10: [0, "0"], 11: [0, "0"], 12: [0, "2"],
                  13: [0, "1"], 14: [0, "0"], 15: [0, "0"], 16: [0, "0"], 17: [0, "2"], 18: [0, "0"],
                  19: [0, "2"], 20: [0, "0"], 21: [0, "0"], 22: [0, "0"], 23: [2, "2"], 24: [0, "1"]}
@@ -69,9 +72,11 @@ def main():
                 board = INITIAL_BOARD
 
                 while not is_win(board, color):
+
                     current_socket.send(protocol.send_protocol("20", board))
                     logging.debug(protocol.send_protocol("20", board))
 
+                    current_socket.settimeout(40)
                     func, board = protocol.receive_protocol(current_socket)
                     logging.debug("received: " + func + " from client " + color)
 
@@ -89,7 +94,7 @@ def main():
                     client_socket.send(protocol.send_protocol(func, board))
                     logging.debug("send function: " + func)
 
-            except socket.error as e:
+            except (socket.error,socket.timeout) as e:
                 logging.debug(f"Socket error occurred: {e}")
                 logging.debug("GAME OVER")
                 func = "30"
