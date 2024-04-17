@@ -44,8 +44,8 @@ SQUARES_POS = {1: [121.5, 525], 2: [164.5, 525], 3: [207.5, 525], 4: [250.5, 525
 
 def draw_board(board, color, screen):
     """
-    the function received a dictionary and the color of the player and draw the board
-    :param board: dictionary of the spot and how many player and which color in it
+    the function received a dictionary and the color of the player and draws the board on the screen
+    :param board: dictionary of the board
     :param color: the color of the player in str
     :param screen: the screen
     :return: none
@@ -81,10 +81,10 @@ def draw_board(board, color, screen):
 
 def find_spot(x, y):
     """
-    check in which spot in board the client press
+    checks in which spot on board the client has pressed
     :param x: x pos
     :param y: y pos
-    :return: the spot on the board of x and y
+    :return: the spot on the board of x and y, if there is an error return -1
     """
     value = 0
     try:
@@ -115,13 +115,13 @@ def find_spot(x, y):
 
 def turn(screen, board, color, num, spot1):
     """
-    do the player turn, move circle according to the num and the spot
+    gets the data for this turn and moves the piece according to num(cube) and the spot
     :param screen: the screen
-    :param board: the board
-    :param color: color of the client
+    :param board: dictionary of the board
+    :param color: color of the player
     :param num: the num of the cube for this turn
-    :param spot1: the spot the client press on
-    :return: the board after the turn and if the turn is correct
+    :param spot1: the spot the client pressed on
+    :return: the board after the turn and true if the turn is correct or false if not
     """
     turn_correct = False
     try:
@@ -136,41 +136,41 @@ def turn(screen, board, color, num, spot1):
         if 1 <= spot2 <= 24:
             if spot2 > 24 or spot2 < 1:
                 # player out
-    
+
                 if can_get_out(board, color):
                     logging.debug("player go out")
                     board[spot1][0] = board[spot1][0] - 1
                     turn_correct = True
-    
+
             else:
                 # regular turn
-    
+
                 if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
-    
+
                     board[spot1][0] = board[spot1][0] - 1
                     board[spot2][0] = board[spot2][0] + 1
-    
+
                     board[spot2][1] = board[spot1][1]
-    
+
                     if board[spot1][0] == 0:
                         board[spot1][1] = "0"
                     turn_correct = True
-    
+
                 elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
                     logging.debug("eat other player")
                     if board[spot2][1] == "1":
                         board[100][0] = board[100][0] + 1
                     elif board[spot2][1] == "2":
                         board[-100][0] = board[-100][0] + 1
-    
+
                     board[spot1][0] = board[spot1][0] - 1
                     board[spot2][1] = board[spot1][1]
-    
+
                     if board[spot1][0] == 0:
                         board[spot1][1] = "0"
-    
+
                     turn_correct = True
-    
+
                 else:
                     text = FONT.render("player can't go", True, RED)
                     text_rect = text.get_rect()
@@ -185,6 +185,15 @@ def turn(screen, board, color, num, spot1):
 
 
 def turn_eaten_player(screen, board, color, num, spot1):
+    """
+    special turn if one of the pieces was "eaten" and needs to go back to the board
+    :param screen: the screen
+    :param board: dictionary of the board
+    :param color: color of the player
+    :param num: the num of the cube for this turn
+    :param spot1: the spot the client pressed on
+    :return: the board after the turn and true if the turn is correct or false if not
+    """
     turn_correct = False
     try:
         if color == "1":
@@ -193,25 +202,25 @@ def turn_eaten_player(screen, board, color, num, spot1):
             spot2 = num
         else:
             spot2 = 0
-        
+
         if 1 <= spot2 <= 24:
             if board[spot2][0] == 0 or board[spot1][1] == board[spot2][1]:
                 board[spot1][0] = board[spot1][0] - 1
                 board[spot2][0] = board[spot2][0] + 1
                 board[spot2][1] = board[spot1][1]
                 turn_correct = True
-    
+
             elif board[spot2][0] == 1 and board[spot1][1] != board[spot2][1]:
                 logging.debug("eat other player")
                 if board[spot2][1] == "1":
                     board[100][0] = board[100][0] + 1
                 elif board[spot2][1] == "2":
                     board[-100][0] = board[-100][0] + 1
-    
+
                 board[spot1][0] = board[spot1][0] - 1
                 board[spot2][1] = board[spot1][1]
                 turn_correct = True
-    
+
             else:
                 text = FONT.render("player can't go", True, RED)
                 text_rect = text.get_rect()
@@ -227,9 +236,9 @@ def turn_eaten_player(screen, board, color, num, spot1):
 
 def can_get_out(board, color):
     """
-    check if the player can get out according to the board
+    check if the player can remove his pieces out
     :param board: dictionary of the board
-    :param color: color of the client
+    :param color: color of the player
     :return: true if player can get out and false if not
     """
     value = True
@@ -262,7 +271,7 @@ def end_screen(color, board, screen):
     draws the end screen after the game over
     :param color: color of the player who won
     :param board: dict of the board
-    :param screen: screen
+    :param screen: the screen
     :return: none
     """
     try:
@@ -271,8 +280,10 @@ def end_screen(color, board, screen):
             msg = "white has won"
         elif color == "2":
             msg = "blue has won"
-        else:
+        elif color == "0":
             msg = "the other player disconnect, you have won"
+        else:
+            msg = "the server fall, game over"
 
         while not finish:
             for event in pygame.event.get():
@@ -296,8 +307,8 @@ def end_screen(color, board, screen):
 
 def waiting_screen(screen, my_socket):
     """
-    drawing a waiting screen until receive the first msg from server
-    :param screen: screen
+    drawing a waiting screen until receiving the first msg from server
+    :param screen: the screen
     :param my_socket: socket of client
     :return: func and board - the msg from server to start the game
     """
@@ -327,6 +338,13 @@ def waiting_screen(screen, my_socket):
 
 
 def main():
+    """
+    the main function of the client. the client connects to the server and waits to start the game
+    in each turn the client receives the board from the server, he gets a num and presses on the board to move
+    a piece and do his turn. In the end of the turn he will send the board back to the server after the changes
+     and wait to the next turn.
+    :return: none
+    """
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         my_socket.connect((IP, PORT))
@@ -344,6 +362,7 @@ def main():
 
         got_board = False
         finish = False
+        count_if_server_close = 0
         if color != "0":
             while not finish:
                 for event in pygame.event.get():
@@ -353,26 +372,32 @@ def main():
                 screen.blit(BOARD_IMG, (0, 0))
 
                 if not got_board:
-                    rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
-                    if len(rlist) > 0:
-                        func, board2 = protocol.receive_protocol(my_socket)
-                        logging.debug("received: " + func)
-                        if func == "20":
-                            board = board2
-                            got_board = True
-                            start_time = time.time()
-                            time_left = DURATION
-                            num = random.randint(1, 6)
-                            logging.debug("num for this turn: " + str(num))
+                    count_if_server_close = count_if_server_close + 1
+                    if count_if_server_close < 1500:
+                        rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
+                        if len(rlist) > 0:
+                            func, board2 = protocol.receive_protocol(my_socket)
+                            logging.debug("received: " + func)
+                            if func == "20":
+                                board = board2
+                                got_board = True
+                                start_time = time.time()
+                                time_left = DURATION
+                                num = random.randint(1, 6)
+                                logging.debug("num for this turn: " + str(num))
 
-                        elif func == "30" or func == "31" or func == "32":
-                            logging.debug("GAME OVER")
-                            my_socket.close()
-                            color = func[1]
-                            end_screen(color, board2, screen)
-                            break
+                            elif func == "30" or func == "31" or func == "32":
+                                logging.debug("GAME OVER")
+                                my_socket.close()
+                                color = func[1]
+                                end_screen(color, board2, screen)
+                                break
+                    else:
+                        logging.debug(count_if_server_close)
+                        break
 
                 if got_board:
+                    count_if_server_close = 0
                     print_num(screen, num)
                     turn_correct = False
                     if not turn_correct:
