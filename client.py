@@ -133,10 +133,10 @@ def turn(screen, board, color, num, spot1):
         else:
             spot2 = 0
 
-        if 1 <= spot2 <= 24:
+        if 1 <= spot1 <= 24:
             if spot2 > 24 or spot2 < 1:
                 # player out
-
+                logging.debug(can_get_out(board, color))
                 if can_get_out(board, color):
                     logging.debug("player go out")
                     board[spot1][0] = board[spot1][0] - 1
@@ -246,13 +246,15 @@ def can_get_out(board, color):
         for s in board.keys():
             if s > 6:
                 if board[s][0] > 0 and board[s][1] == "1":
-                    value = False
+                    if s != 100:
+                        value = False
 
     elif color == "2":
         for s in board.keys():
             if s < 19 and board[s][0] > 0:
                 if board[s][0] > 0 and board[s][1] == "2":
-                    value = False
+                    if s != -100:
+                        value = False
     return value
 
 
@@ -300,7 +302,7 @@ def end_screen(color, board, screen):
                 clock.tick(REFRESH_RATE)
 
     except socket.error as err:
-        print('received socket error ' + str(err))
+        logging.debug('received socket error ' + str(err))
     finally:
         return
 
@@ -333,7 +335,7 @@ def waiting_screen(screen, my_socket):
                 pygame.display.flip()
                 clock.tick(REFRESH_RATE)
     except socket.error as err:
-        print('received socket error ' + str(err))
+        logging.debug('received socket error ' + str(err))
         return "-1", "-1"
 
 
@@ -352,7 +354,8 @@ def main():
         pygame.display.set_caption("Game")
 
         func, board = waiting_screen(screen, my_socket)
-        color = 0
+        my_socket.send(protocol.send_protocol(func, board))
+        color = "0"
         if func == "11":
             color = "1"
         elif func == "12":
@@ -362,7 +365,6 @@ def main():
 
         got_board = False
         finish = False
-        count_if_server_close = 0
         if color != "0":
             while not finish:
                 for event in pygame.event.get():
@@ -372,32 +374,27 @@ def main():
                 screen.blit(BOARD_IMG, (0, 0))
 
                 if not got_board:
-                    count_if_server_close = count_if_server_close + 1
-                    if count_if_server_close < 1500:
-                        rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
-                        if len(rlist) > 0:
-                            func, board2 = protocol.receive_protocol(my_socket)
-                            logging.debug("received: " + func)
-                            if func == "20":
-                                board = board2
-                                got_board = True
-                                start_time = time.time()
-                                time_left = DURATION
-                                num = random.randint(1, 6)
-                                logging.debug("num for this turn: " + str(num))
+                    rlist, wlist, xlist = select.select([my_socket], [], [], 0.01)
+                    if len(rlist) > 0:
+                        func, board2 = protocol.receive_protocol(my_socket)
+                        logging.debug("received: " + func)
+                        if func == "20":
+                            board = board2
+                            got_board = True
+                            start_time = time.time()
+                            time_left = DURATION
+                            num = random.randint(1, 6)
+                            logging.debug("num for this turn: " + str(num))
 
-                            elif func == "30" or func == "31" or func == "32":
-                                logging.debug("GAME OVER")
-                                my_socket.close()
-                                color = func[1]
-                                end_screen(color, board2, screen)
-                                break
-                    else:
-                        logging.debug(count_if_server_close)
-                        break
+                        elif func == "30" or func == "31" or func == "32":
+                            logging.debug("GAME OVER")
+                            my_socket.send(protocol.send_protocol(func, board2))
+                            logging.debug(protocol.send_protocol(func, board2))
+                            color = func[1]
+                            end_screen(color, board2, screen)
+                            break
 
                 if got_board:
-                    count_if_server_close = 0
                     print_num(screen, num)
                     turn_correct = False
                     if not turn_correct:
@@ -448,6 +445,7 @@ def main():
 
     finally:
         my_socket.close()
+        logging.debug("close screen")
 
 
 if __name__ == "__main__":
@@ -500,4 +498,3 @@ if __name__ == "__main__":
     assert protocol.send_protocol("20", board_a) == b'20262!\x80\x04\x95\xfb\x00\x00\x00\x00\x00\x00\x00}\x94(K\x01]\x94(K\x02\x8c\x012\x94eK\x02]\x94(K\x00\x8c\x010\x94eK\x03]\x94(K\x00h\x04eK\x04]\x94(K\x00h\x04eK\x05]\x94(K\x00h\x04eK\x06]\x94(K\x05\x8c\x011\x94eK\x07]\x94(K\x00h\x04eK\x08]\x94(K\x03h\teK\t]\x94(K\x00h\x04eK\n]\x94(K\x00h\x04eK\x0b]\x94(K\x00h\x04eK\x0c]\x94(K\x05h\x02eK\r]\x94(K\x05h\teK\x0e]\x94(K\x00h\x04eK\x0f]\x94(K\x00h\x04eK\x10]\x94(K\x00h\x04eK\x11]\x94(K\x03h\x02eK\x12]\x94(K\x00h\x04eK\x13]\x94(K\x05h\x02eK\x14]\x94(K\x00h\x04eK\x15]\x94(K\x00h\x04eK\x16]\x94(K\x00h\x04eK\x17]\x94(K\x00h\x04eK\x18]\x94(K\x02h\teu.'
 
     main()
-    logging.debug("close screen")

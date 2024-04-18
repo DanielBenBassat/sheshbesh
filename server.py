@@ -48,6 +48,7 @@ def main():
         server_socket.bind((SERVER_IP, SERVER_PORT))
         server_socket.listen()
         while True:
+            logging.debug("waiting for clients")
             client_sockets = []
             try:
                 while len(client_sockets) < 2:
@@ -58,38 +59,47 @@ def main():
                             logging.debug("new client joined")
                             logging.debug(client_address)
                             client_sockets.append(connection)
-
+                temp = True
                 for i in range(2):
                     current_socket = client_sockets[i]
                     func = "1" + str(i + 1)
                     current_socket.send(protocol.send_protocol(func, INITIAL_BOARD))
                     logging.debug(protocol.send_protocol(func, INITIAL_BOARD))
+                    func_r, board_r = protocol.receive_protocol(current_socket)
+                    logging.debug(protocol.send_protocol(func, INITIAL_BOARD))
+                    if func_r != func or board_r != INITIAL_BOARD:
+                        temp = False
 
                 current_socket = client_sockets[0]
                 color = "1"
                 board = INITIAL_BOARD
+                if temp:
+                    while not is_win(board, color):
+                        current_socket.send(protocol.send_protocol("20", board))
+                        logging.debug(protocol.send_protocol("20", board))
 
-                while not is_win(board, color):
-                    current_socket.send(protocol.send_protocol("20", board))
-                    logging.debug(protocol.send_protocol("20", board))
+                        current_socket.settimeout(40)
+                        func, board = protocol.receive_protocol(current_socket)
+                        logging.debug("received: " + func)
 
-                    current_socket.settimeout(40)
-                    func, board = protocol.receive_protocol(current_socket)
-                    logging.debug("received: " + func + " from client " + color)
+                        if current_socket == client_sockets[0]:
+                            color = "1"
+                            current_socket = client_sockets[1]
+                        else:
+                            color = "2"
+                            current_socket = client_sockets[0]
 
-                    if current_socket == client_sockets[0]:
-                        color = "1"
-                        current_socket = client_sockets[1]
-                    else:
-                        color = "2"
-                        current_socket = client_sockets[0]
+                    logging.debug("GAME OVER")
+                    func = "3" + str(color)
 
-                logging.debug("GAME OVER")
-                func = "3" + str(color)
-
-                for client_socket in client_sockets:
-                    client_socket.send(protocol.send_protocol(func, board))
-                    logging.debug("send function: " + func)
+                    for client_socket in client_sockets:
+                        client_socket.send(protocol.send_protocol(func, board))
+                        logging.debug("send function: " + func)
+                        func_r, board_r = protocol.receive_protocol(client_socket)
+                        logging.debug("received function: " + func)
+                        if func == func_r and board == board_r:
+                            client_socket.close()
+                            logging.debug("socket is close")
 
             except (socket.error, socket.timeout) as e:
                 logging.debug(f"Socket error occurred: {e}")
@@ -101,6 +111,7 @@ def main():
                     count = 0
                     client_sockets[1].send(protocol.send_protocol(func, board))
                     logging.debug("send function: " + func)
+
                     count = 1
                     client_sockets[0].send(protocol.send_protocol(func, board))
                     logging.debug("send function: " + func)
@@ -114,8 +125,16 @@ def main():
                         except socket.error as e:
                             logging.debug(f"Socket error occurred: {e}")
 
-                except Exception as e:
-                    logging.debug(f"An error occurred: {e}")
+                finally:
+                    if count == 0:
+                        current_socket = client_sockets[0]
+                    else:
+                        current_socket = client_sockets[1]
+                    func_r, board_r = protocol.receive_protocol(current_socket)
+                    logging.debug("received function: " + func)
+                    if func == func_r and board == board_r:
+                        current_socket.close()
+                        logging.debug("socket is close")
 
             except Exception as e:
                 logging.debug(f"An error occurred: {e}")
